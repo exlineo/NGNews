@@ -24,7 +24,7 @@ export class AnewsService{
 
   // Récuperer une nouvelle en particulier
   getNews(id: number) {
-    let tmp = this.news.getValue();
+    let tmp = this.news$.getValue();
     return tmp[id];
   }
 

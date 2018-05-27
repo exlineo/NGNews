@@ -1,31 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { AnewsService } from '../../services/anews.service';
-import { ActivatedRoute } from '@angular/router';
-import { NouvellesModel } from '../../modeles/nouvelles.modele';
-import { Subscription } from 'rxjs';
-import { Auteur } from '../../modeles/auteurs.modele';
+import { Component, Input } from '@angular/core';
+import { AuteurModel } from '../../modeles/auteurs.modele';
 
 @Component({
   selector: 'app-anews-auteur',
   templateUrl: './anews-auteur.component.html',
   styleUrls: ['./anews-auteur.component.css']
 })
-export class AnewsAuteurComponent implements OnInit {
+export class AnewsAuteurComponent {
 
-  newsId: number;
-  donneesSub: Subscription;
-  auteur: Auteur;
+  @Input() auteur:AuteurModel;
 
-  constructor(public donnees: AnewsService, private routeParams: ActivatedRoute) { }
-
-  ngOnInit() {
-    this.routeParams.parent.params.subscribe(params => {
-      console.log(params);
-      this.newsId = +params['id']; // (+) converts string 'id' to a number
-      this.auteur = this.donnees.news[this.newsId]['auteur'];
-      // this.auteur = this.donnees.news.getValue()[this.newsId]['auteur'];
-      console.log('News', this.newsId, this.auteur);
-   });
-  }
-
+  constructor() { }
 }
