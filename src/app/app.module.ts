@@ -18,7 +18,6 @@ import { MenuComponent } from './menu/menu.component';
 import { AnewsAuteurComponent } from './anews-detail/anews-auteur/anews-auteur.component';
 import { AnewsRelativeComponent } from './anews-detail/anews-relative/anews-relative.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

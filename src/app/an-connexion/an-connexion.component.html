@@ -21,9 +21,9 @@
                 <div *ngIf="mdpCtrl.control.dirty && mdpCtrl.control.hasError('required')">Mot de passe requis</div>
             </div>
 
-            <button class="btn btn-primary" type="submit" *ngIf="!authService.connecte" [disabled]="f.invalid">Se connecter !</button>
+            <button type="submit" *ngIf="!authService.connecte" [disabled]="f.invalid">Se connecter !</button>
 
         </form>
-        <button class="btn btn-primary" (click)="authService.stockConnexion(false)" *ngIf="authService.connecte">Se déconnecter</button>
+        <button (click)="authService.stockConnexion(false)" *ngIf="authService.connecte">Se déconnecter</button>
     </div>
 </section>

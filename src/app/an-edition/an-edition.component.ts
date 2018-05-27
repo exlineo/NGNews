@@ -12,9 +12,7 @@ import { NewsPipe } from './news.pipe';
   selector: 'app-an-edition',
   templateUrl: './an-edition.component.html',
   styleUrls: [
-    './an-edition.component.css',
-    '../../node_modules/froala-editor/css/froala_editor.pkgd.min.css',
-    '../../node_modules/font-awesome/css/font-awesome.min.css'
+    './an-edition.component.css'
   ]
 })
 export class AnEditionComponent implements OnInit, OnDestroy {
@@ -23,10 +21,15 @@ export class AnEditionComponent implements OnInit, OnDestroy {
   // news:NouvellesModel={id:-1, titre:'',description:'',img:''};
   news:NouvellesModel[];
   newsActu:NouvellesModel;
-
   filtre:string; // Filtrage des données de la liste des articles
-
   donnees$:Subscription; // Récupération des données des Nouvelles
+  
+  // Ajout d'un éditeur
+  public editeur;
+  public editeurContent = `<h3>I am Example content</h3>`;
+  public editeurOptions = {
+    placeholder: "insert content..."
+  };
 
   constructor(public donnees:AnewsService, private routeParams:ActivatedRoute, public authService:AuthService) {}
 
