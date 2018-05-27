@@ -1,0 +1,56 @@
+[{
+        "id": 0,
+        "titre": "Une promo attentive",
+        "description": "Le temps est trop court, l'intérêt manifeste, les étudiants sont concentrés comme des fous.",
+        "img": "/assets/images/attentif.gif",
+        "auteur": {
+            "id": 0,
+            "nom": "Gérald Abbadie",
+            "infos": "Sait parfois ce qu'il fait mais bon... le reste il l'apprend"
+        }
+    },
+    {
+        "id": 1,
+        "titre": "Bonjour Angular",
+        "description": "Un cours pour expliquer le fonctionnement d'angular pour des développeurs qui ont envie de préparer leurs vacances (?)",
+        "img": "/assets/images/angular-hello.gif",
+        "auteur": {
+            "id": 1,
+            "nom": "Angelina Joly",
+            "infos": "Brad est surfait pis, il a quand même un peu vieilli, faut avouer"
+        }
+    },
+    {
+        "id": 2,
+        "titre": "Les concepts",
+        "description": "Apprendre Angular s'est se former aux standards du Web de demain.",
+        "img": "/assets/images/concept.gif",
+        "auteur": {
+            "id": 2,
+            "nom": "Brad",
+            "infos": "Arf, le gosse d'Angélina ? ... Insuportable, à claquer !"
+        }
+    },
+    {
+        "id": 3,
+        "titre": "Modules, composants, injections ?",
+        "description": "La construction répond à des logiques qu'il faut savoir gérer, identifier et manipuler.",
+        "img": "/assets/images/injection.gif",
+        "auteur": {
+            "id": 3,
+            "nom": "Jerry Lewis",
+            "infos": "Drôle non ?"
+        }
+    },
+    {
+        "id": 4,
+        "titre": "Chargement de données",
+        "description": "Quelques outils pour charger et écouter des données loadées...",
+        "img": "/assets/images/telechargement.gif",
+        "auteur": {
+            "id": 4,
+            "nom": "Stan Smith",
+            "infos": "C'est le pied"
+        }
+    }
+]

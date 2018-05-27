@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Lora|Open+Sans+Condensed:300');
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
+    color: #FFF;
+    animation: apparait linear .3s 1;
+}
+
+body {
+    background: linear-gradient(135deg, #a90329 0%, #8f0222 44%, #6d0019 100%);
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Lora', serif;
+}
+
+a {
+    color: rgba(255, 255, 255, .8);
+    transition: all .2s ease-in-out;
+}
+
+a:hover {
+    color: rgba(255, 255, 255, 1);
+    font-weight: bold;
+}
+
+article {
+    color: #000;
+    background: #FFF;
+}
+
+button {
+    background-color: #4CAF50;
+    /* Green */
+    color: white;
+    text-align: center;
+    display: inline-block;
+}
+
+input,
+select,
+button,
+label {
+    padding: 10px 22px;
+    font-size: 16px;
+    border: none;
+    text-decoration: none;
+    font-family: 'Lora', serif;
+    margin: 10px;
+}
+
+@keyframes apparait {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

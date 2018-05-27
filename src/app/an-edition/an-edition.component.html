@@ -1,0 +1,28 @@
+<section>
+    <article div class="col-md-12 offset-md-12">
+        <h1>Editer une news</h1>
+
+        <form (ngSubmit)="edition(f)" name="edition" #f="ngForm">
+
+            <div class="form-group">
+                <label for="titre" id="titre-label">Titre*</label>
+                <input id="titre" class="form-control" required name="titre" [(ngModel)]="newsActu.titre" #titreCtrl="ngModel">
+                <div *ngIf="titreCtrl.dirty && titreCtrl.hasError('required')" id="titre-warning">Un titre est requis</div>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input id="description" class="form-control" type="description" name="description" [(ngModel)]="newsActu.description" #descrCtrl="ngModel">
+                <div *ngIf="descrCtrl.dirty && descrCtrl.hasError('required')">Une description est requise</div>
+            </div>
+
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input id="image" class="form-control" type="text" name="image" [(ngModel)]="newsActu.img" #imgCtrl="ngModel">
+                <div *ngIf="imgCtrl.dirty && imgCtrl.hasError('required')">Vous pouvez ajouter une image</div>
+            </div>
+
+            <button class="btn btn-primary" type="submit" [disabled]="f.invalid">Let's Go!</button>
+        </form>
+    </article>
+</section>

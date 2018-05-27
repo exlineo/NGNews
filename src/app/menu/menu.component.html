@@ -1,0 +1,9 @@
+<nav>
+    <img [src]="logo" class="logo" [routerLink]="['/']" />
+    <ul>
+        <li><a href='' [routerLink]="['/']">Accueil</a></li>
+        <li><a href='' [routerLink]="['/news', 1]">Actualité</a></li>
+        <li><a href='' *ngIf="authService.connecte" [routerLink]="['/edition']">Editer une news</a></li>
+        <li><a href='' [routerLink]="['/connexion']">Connexion</a></li>
+    </ul>
+</nav>

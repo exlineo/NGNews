@@ -1,0 +1,31 @@
+.logo {
+    float: left;
+    margin-right: 20px;
+}
+
+.logo:hover {
+    cursor: pointer;
+}
+
+nav {
+    padding: 20px;
+    display: inline-block;
+    width: 100%;
+}
+
+nav ul li {
+    list-style: none;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.8);
+    color: rgb(18, 105, 177);
+    font-weight: bold;
+}
+
+nav a {
+    transition: all 0.3s ease-in-out;
+    padding: 10px 20px;
+}

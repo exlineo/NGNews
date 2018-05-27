@@ -1,0 +1,12 @@
+<section>
+    <a href routerLink="auteur">AUTEUR</a>
+    <article>
+        <h2>{{newsActu.titre}}</h2>
+        <blockquote>
+            <app-anews-auteur></app-anews-auteur>
+            <router-outlet></router-outlet>
+        </blockquote>
+        <p><img [src]="newsActu.img" />{{newsActu.description}}</p>
+        <a href [routerLink]="['/edition', newsId]" *ngIf="authService.connecte"><img src="../assets/images/Settings.png" class="edition" /></a>
+    </article>
+</section>
