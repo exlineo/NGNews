@@ -40,10 +40,21 @@ article {
 
 button {
     background-color: #4CAF50;
-    /* Green */
     color: white;
     text-align: center;
     display: inline-block;
+}
+
+button[type="reset"] {
+    background-color: rgb(194, 50, 45);
+}
+
+button:not([disabled]) {
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: .8;
 }
 
 input,

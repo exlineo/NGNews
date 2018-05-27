@@ -11,7 +11,11 @@ import { NewsPipe } from './news.pipe';
 @Component({
   selector: 'app-an-edition',
   templateUrl: './an-edition.component.html',
-  styleUrls: ['./an-edition.component.css']
+  styleUrls: [
+    './an-edition.component.css',
+    '../../node_modules/froala-editor/css/froala_editor.pkgd.min.css',
+    '../../node_modules/font-awesome/css/font-awesome.min.css'
+  ]
 })
 export class AnEditionComponent implements OnInit, OnDestroy {
 
@@ -53,8 +57,9 @@ export class AnEditionComponent implements OnInit, OnDestroy {
     console.log(f.value);
   }
   // Changer la news à éditer
-  setNewsActu(){
-
+  setNewsActu(e:any){
+    this.newsActu = this.news[e.target.value];
+    console.log(this.newsActu);
   }
   // Arréter les souscriptions
   ngOnDestroy(){
