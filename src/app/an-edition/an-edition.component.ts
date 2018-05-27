@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { AnewsService } from '../services/anews.service';
 import { NouvellesModel } from '../modeles/nouvelles.modele';
 import { AuthService } from '../services/auth.service';
+import { NewsPipe } from './news.pipe';
 
 @Component({
   selector: 'app-an-edition',
@@ -19,22 +20,29 @@ export class AnEditionComponent implements OnInit, OnDestroy {
   news:NouvellesModel[];
   newsActu:NouvellesModel;
 
+  filtre:string; // Filtrage des données de la liste des articles
+
   donnees$:Subscription; // Récupération des données des Nouvelles
 
-  constructor(private donnees:AnewsService, private routeParams:ActivatedRoute, public authService:AuthService) {}
+  constructor(public donnees:AnewsService, private routeParams:ActivatedRoute, public authService:AuthService) {}
 
   // Initialiser la news à éditer
   ngOnInit() {
     this.newsId = 0; // Paramétrer une valeur par défaut à l'ID
     this.routeParams.params.subscribe(params => {
       this.newsId = +params['id'];
-      this.newsActu = this.donnees.getNews(+params['id']); // (+) converts string 'id' to a number
+      this.news = this.donnees.news$.getValue();
+      this.newsActu = this.news[this.newsId]; // (+) converts string 'id' to a number
       // Récupérer les données du service
       this.donnees$ = this.donnees.news$.subscribe(
         data => {
+          this.news = data;
+            console.log(this.news);
           if(this.newsId){
             // Identifier la nouvelle qui nous intéresse
-            this.newsActu = data[this.newsId];
+            this.newsActu = this.news[this.newsId];
+          }else{
+            this.newsActu = this.news[0];
           }
       });
     });
@@ -43,6 +51,10 @@ export class AnEditionComponent implements OnInit, OnDestroy {
   // Recevoir les données du submit
   edition(f:NgForm){
     console.log(f.value);
+  }
+  // Changer la news à éditer
+  setNewsActu(){
+
   }
   // Arréter les souscriptions
   ngOnDestroy(){

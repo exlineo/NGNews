@@ -1,9 +1,12 @@
 <section>
     <article div class="col-md-12 offset-md-12">
         <h1>Editer une news</h1>
-
+        <input name="filtre" [(ngModel)]="filtre" #filtreCtrl="ngModel">
+        <label for="news" id="news-label">Liste des news disponibles</label>
+        <select id="news" class="form-control" name="news" [(ngModel)]="news" #newsCtrl="ngModel">
+            <option *ngFor="let n of news | newsPipe; index as i" value="{{i}}">{{n.titre}}</option>
+        </select>
         <form (ngSubmit)="edition(f)" name="edition" #f="ngForm">
-
             <div class="form-group">
                 <label for="titre" id="titre-label">Titre*</label>
                 <input id="titre" class="form-control" required name="titre" [(ngModel)]="newsActu.titre" #titreCtrl="ngModel">

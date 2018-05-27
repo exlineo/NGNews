@@ -58,6 +58,12 @@ label {
     margin: 10px;
 }
 
+input,
+select {
+    border: 1px solid #CCC;
+    color: #000;
+}
+
 @keyframes apparait {
     from {
         opacity: 0;
