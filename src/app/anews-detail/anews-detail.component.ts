@@ -1,4 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser'; // Nettoyer du html dans une chaîne
+
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -20,7 +22,7 @@ export class AnewsDetailComponent implements OnInit, OnDestroy {
   news:NouvellesModel[];
   newsActu:NouvellesModel;
 
-  constructor(public donnees:AnewsService, private routeParams:ActivatedRoute, public authService:AuthService) { }
+  constructor(public donnees:AnewsService, private routeParams:ActivatedRoute, public authService:AuthService, public sanitizer: DomSanitizer) { }
   
   ngOnInit() {
     this.newsId = 0; // Valeur par défaut de newsId corrigée sir

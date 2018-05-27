@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser'; // Nettoyer du html dans une chaîne
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -16,7 +17,7 @@ export class AnewsComponent implements OnInit{
   news:NouvellesModel[];
   visible:boolean=false;
 
-  constructor(private donnees:AnewsService, private route:Router, public authService:AuthService) {  }
+  constructor(private donnees:AnewsService, private route:Router, public authService:AuthService, public sanitizer: DomSanitizer) {  }
 
   ngOnInit() {
     this.news = this.donnees.news$.getValue(); // Si le tableau est déjà chargé

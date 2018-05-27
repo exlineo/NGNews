@@ -2,7 +2,7 @@
     <article *ngFor="let n of news" (click)=goNews(n.id)>
         <div class="img" [style.backgroundImage]="'url('+n.img+')'"></div>
         <h3>{{n.titre}}</h3>
-        <p>{{n.description}}</p>
+        <p [innerHtml]="sanitizer.bypassSecurityTrustHtml( n.description )"></p>
         <a href [routerLink]="['/edition', n.id]" *ngIf="authService.connecte"><img src="../assets/images/Settings.png" class="edition" /></a>
     </article>
 </section>
