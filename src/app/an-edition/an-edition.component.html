@@ -1,5 +1,5 @@
 <section>
-    <article div class="col-md-12 offset-md-12">
+    <article>
         <h1>Editer une news</h1>
         <input name="filtre" [(ngModel)]="filtre" placeholder="Filtrer les news">
         <select id="newsSelect" class="form-control" name="newsSelect" (change)="setNewsActu($event)">
@@ -14,12 +14,6 @@
             <div>
                 <app-tinymce [(ngModel)]="newsActu.description" name="description"></app-tinymce>
             </div>
-
-            <!-- <div>
-                <label for="description">Description</label>
-                <input id="description" class="form-control" name="description" [(ngModel)]="newsActu.description" #descrCtrl="ngModel">
-                <div *ngIf="descrCtrl.dirty && descrCtrl.hasError('required')">Une description est requise</div>
-            </div> -->
 
             <div>
                 <label for="image">Image</label>

@@ -19,6 +19,10 @@ export class AuthService {
   authentifier(ids): Observable<any> {
     return this.http.post('assets/datas/id.json', ids);
   }
+  // Fausse authentification pour tester lors du développement
+  dummyAuth(){
+    this.connecte = true;
+  }
   // Stock l'enregistrement dans le local storage
   stockConnexion(tag: boolean) {
     this.connexionSub.next(tag);

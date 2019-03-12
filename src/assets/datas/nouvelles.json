@@ -16,8 +16,8 @@
         "img": "/assets/images/angular-hello.gif",
         "auteur": {
             "id": 1,
-            "nom": "Angelina Joly",
-            "infos": "Brad est surfait pis, il a quand même un peu vieilli, faut avouer"
+            "nom": "La communauté",
+            "infos": "Je me souviens du temps jadis où les communautés de développeurs n'étaient pas ce qu'elles sont... Merci à eux."
         }
     },
     {

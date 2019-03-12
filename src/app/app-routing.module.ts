@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
 import { BlocEditionGuard } from './services/bloc-edition.guard';
 import { AppComponent } from './app.component';
 import { AnewsComponent } from './anews/anews.component';
@@ -20,10 +19,9 @@ const routes: Routes = [
     { path: 'auteur', component: AnewsAuteurComponent },
     { path: 'relatif', component: AnewsRelativeComponent }
   ] },
-  { path: 'edition', component: AnEditionComponent, canActivate: [BlocEditionGuard] },
-  { path: 'edition/:id', component: AnEditionComponent, canActivate: [BlocEditionGuard] },
+  { path: 'edition', loadChildren: './an-edition/edition.module#EditionModule', canLoad: [BlocEditionGuard] },
   { path: 'connexion', component: AnConnexionComponent },
-  { path: '', redirectTo: '/', pathMatch: 'full' },
+  // { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '**', component: Erreur404Component }];
 
 @NgModule({

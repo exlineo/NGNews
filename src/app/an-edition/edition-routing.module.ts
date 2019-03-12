@@ -4,8 +4,8 @@ import { AnEditionComponent } from './an-edition.component';
 import { BlocEditionGuard } from '../services/bloc-edition.guard';
 
 const routes: Routes = [
-  { path: 'edition', component: AnEditionComponent, canActivate: [BlocEditionGuard] },
-  { path: 'edition/:id', component: AnEditionComponent, canActivate: [BlocEditionGuard] }
+  { path: '', component: AnEditionComponent},
+  { path: ':id', component: AnEditionComponent}
 ];
 
 @NgModule({

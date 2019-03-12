@@ -2,12 +2,13 @@
     <!-- <a href routerLink="auteur">AUTEUR</a> -->
     <article>
         <h2>{{newsActu.titre}}</h2>
-        <blockquote>
-            <app-anews-auteur [auteur]="newsActu['auteur']"></app-anews-auteur>
-            <!-- <router-outlet></router-outlet> -->
-        </blockquote>
+
         <img [src]="newsActu.img" />
+        <!-- Sanitisation pour permettre l'affichage de balises HTML -->
         <p [innerHtml]="sanitizer.bypassSecurityTrustHtml( newsActu.description )"></p>
         <a href [routerLink]="['/edition', newsId]" *ngIf="authService.connecte"><img src="../assets/images/Settings.png" class="edition" /></a>
+        <blockquote>
+            <app-anews-auteur [auteur]="newsActu['auteur']"></app-anews-auteur>
+        </blockquote>
     </article>
 </section>

@@ -53,7 +53,7 @@ export class AnEditionComponent implements OnInit, OnDestroy {
           }
       });
     });
-    
+    console.log("édition chargée");
   }
   // Recevoir les données du submit
   edition(f:NgForm){

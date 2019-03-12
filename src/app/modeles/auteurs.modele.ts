@@ -1,4 +1,4 @@
-export interface AuteurModel {
+export interface AuteursModel {
     id: number;
     nom: string;
     infos: string;

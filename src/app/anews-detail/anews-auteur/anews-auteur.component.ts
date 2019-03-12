@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { AuteurModel } from '../../modeles/auteurs.modele';
+import { AuteursModel } from '../../modeles/auteurs.modele';
 
 @Component({
   selector: 'app-anews-auteur',
@@ -8,7 +8,7 @@ import { AuteurModel } from '../../modeles/auteurs.modele';
 })
 export class AnewsAuteurComponent {
 
-  @Input() auteur:AuteurModel;
+  @Input() auteur:AuteursModel;
 
   constructor() { }
 }

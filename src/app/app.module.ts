@@ -33,7 +33,6 @@ import { AnewsRelativeComponent } from './anews-detail/anews-relative/anews-rela
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    EditionModule,
     NoopAnimationsModule,
     AppRoutingModule
   ],
