@@ -1,4 +1,4 @@
-<section>
+<section class="unique">
     <!-- <a href routerLink="auteur">AUTEUR</a> -->
     <article>
         <h2>{{newsActu.titre}}</h2>
@@ -7,6 +7,13 @@
         <!-- Sanitisation pour permettre l'affichage de balises HTML -->
         <p [innerHtml]="sanitizer.bypassSecurityTrustHtml( newsActu.description )"></p>
         <a href [routerLink]="['/edition', newsId]" *ngIf="authService.connecte"><img src="../assets/images/Settings.png" class="edition" /></a>
+
+    </article>
+
+</section>
+<!-- Afficher l'auteur d'une nouvelle -->
+<section class="unique">
+    <article>
         <blockquote>
             <app-anews-auteur [auteur]="newsActu['auteur']"></app-anews-auteur>
         </blockquote>

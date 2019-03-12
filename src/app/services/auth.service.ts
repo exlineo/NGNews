@@ -9,6 +9,7 @@ export class AuthService {
   connexionSub:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) {
+    this.connecte = this.recupereConnexion();
   }
   // Créer un nouveau compte
   enregistre(login, mdp): Observable<any> {
@@ -19,14 +20,16 @@ export class AuthService {
   authentifier(ids): Observable<any> {
     return this.http.post('assets/datas/id.json', ids);
   }
-  // Fausse authentification pour tester lors du développement
-  dummyAuth(){
-    this.connecte = true;
-  }
   // Stock l'enregistrement dans le local storage
   stockConnexion(tag: boolean) {
-    this.connexionSub.next(tag);
     this.connecte = tag;
-    window.localStorage.setItem('connexion', JSON.stringify(tag));
+    localStorage.setItem('connexion', JSON.stringify(tag));
+  }
+  // Récupérer la connexion si elle a été stockée
+  recupereConnexion():boolean{
+    if(localStorage.getItem('connexion')){
+      return JSON.parse(localStorage.getItem('connexion'));
+    }
+      return this.connecte;
   }
 }

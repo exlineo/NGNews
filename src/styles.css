@@ -75,6 +75,42 @@ select {
     color: #000;
 }
 
+.unique article {
+    display: flex;
+    flex-flow: column wrap;
+    max-width: 75%;
+    margin: auto;
+}
+
+
+/* Utilisé dans les sections des pages ne contenant qu'un seul article */
+
+.unique article h2,
+.unique article p {
+    padding: 10px 20px;
+}
+
+article img {
+    width: 100%;
+}
+
+blockquote {
+    font-style: italic;
+    max-width: 80%;
+    margin: 0 40px;
+    word-wrap: break-word;
+}
+
+blockquote h2 {
+    padding-bottom: 5px !important;
+}
+
+@media (min-width:1024px) {
+    .unique article {
+        max-width: 50%;
+    }
+}
+
 @keyframes apparait {
     from {
         opacity: 0;
