@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "AngularNews6": {
+        "AngularNews": {
             "root": "",
             "sourceRoot": "src",
             "projectType": "application",
@@ -48,18 +48,18 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "AngularNews6:build"
+                        "browserTarget": "AngularNews:build"
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "AngularNews6:build:production"
+                            "browserTarget": "AngularNews:build:production"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "AngularNews6:build"
+                        "browserTarget": "AngularNews:build"
                     }
                 },
                 "test": {
@@ -93,7 +93,7 @@
                 }
             }
         },
-        "AngularNews6-e2e": {
+        "AngularNews-e2e": {
             "root": "e2e/",
             "projectType": "application",
             "architect": {
@@ -101,7 +101,7 @@
                     "builder": "@angular-devkit/build-angular:protractor",
                     "options": {
                         "protractorConfig": "e2e/protractor.conf.js",
-                        "devServerTarget": "AngularNews6:serve"
+                        "devServerTarget": "AngularNews:serve"
                     }
                 },
                 "lint": {
@@ -116,5 +116,5 @@
             }
         }
     },
-    "defaultProject": "AngularNews6"
+    "defaultProject": "AngularNews"
 }
