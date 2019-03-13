@@ -7,7 +7,9 @@ import { AuteursModel } from '../../modeles/auteurs.modele';
   styleUrls: ['./anews-auteur.component.css']
 })
 export class AnewsAuteurComponent {
-
+  /**
+   * @param auteur Cette valeur est reçue du composant parent (un objet optionnel contenant les paramètres de l'auteur cf. le modèle correspondant)
+   */
   @Input() auteur:AuteursModel;
 
   constructor() { }

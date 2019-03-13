@@ -11,6 +11,10 @@ import { Erreur404Component } from './erreur404/erreur404.component';
 import { AnewsAuteurComponent } from './anews-detail/anews-auteur/anews-auteur.component';
 import { AnewsRelativeComponent } from './anews-detail/anews-relative/anews-relative.component';
 
+/**
+ * Liste des routes utilisées dans l'application
+ * Les routes relative au module d'édition sont gérées directement dans le module des routes dédié
+ */
 const routes: Routes = [
   { path: '', component: AnewsComponent },
   { path: 'news', component: AnewsDetailComponent },

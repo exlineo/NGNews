@@ -1,10 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-// Pipe de traitement des listes
+/**
+ * Traitement de listes d'articles basé sur le modèle des news
+ */
 @Pipe({ name: 'newsPipe' })
 export class NewsPipe implements PipeTransform {
+  /**
+   * Appliquer un filtre aux titres, intro et descriptions des news
+   * @param values Le tableau de données à fitrer (la liste des news)
+   * @param filtre Le filtre à appliquer (ici une chaîne de caractère saisi dans le formulaire de filtre)
+   */
   public transform(values: any[], filtre: string): any[] {
-    // console.log(values[0], filtre);
     if (!values || !values.length) return [];
     if (!filtre) return values;
 
@@ -18,11 +24,17 @@ export class NewsPipe implements PipeTransform {
       if(v.description){
         return v.description.toLowerCase().indexOf(filtre.toLowerCase()) >=0 ;
       }
+      // Filtre sur l'intro d'une news
+      if(v.intro){
+        return v.intro.toLowerCase().indexOf(filtre.toLowerCase()) >=0 ;
+      }
     });
   }
 }
 
-// Pipe de traitement des listes
+/**
+ * Filtre pour des tableaux classiques
+ */
 @Pipe({ name: 'filtreListes' })
 export class FiltrerPipe implements PipeTransform {
   public transform(values: any[], filter: string): any[] {

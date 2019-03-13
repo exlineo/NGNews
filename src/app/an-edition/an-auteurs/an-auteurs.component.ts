@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./an-auteurs.component.css']
 })
 export class AnAuteursComponent implements OnInit {
-
+  /**
+   * Editer un auteur d'une news (non encore implémenté)
+   */
   constructor() { }
 
   ngOnInit() {

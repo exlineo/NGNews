@@ -5,7 +5,12 @@
         "description": "Typescript est utilisé comme langage de base, transpilé en Javascript en production. Développé par les équipes de Microsoft, ce (méta)langage étend Javascript pour offrir des capacités très prisées par les développeurs : typage des variables, interfaces...",
         "img": "/assets/images/angular-hello.gif",
         "intro": "Angular est un framework Javascript développé et maintenu par Google. Il se base sur les développements en classes et modules de Javascript.",
-        "lien": "https://angular.io/"
+        "lien": "https://angular.io/",
+        "auteur": {
+            "_id": "0",
+            "nom": "Google",
+            "infos": "Et ouais, ils en font des trucs chez Google"
+        }
     },
     {
         "_id": "1",
@@ -14,16 +19,26 @@
         "description": "Il est possible de concevoir une application entière uniquement avec du code en agissant sur le HTML depuis le code. Les classes peuvent être importées, exportées et instanciées comme dans une programmation objet classique.",
         "img": "/assets/images/attentif.gif",
         "intro": "La version ES6 de Javascript permet la programmation avec des classes et des modules.",
-        "lien": "https://medium.com/@darrion/javascript-es6-classes-modules-c5169555317d"
+        "lien": "https://medium.com/@darrion/javascript-es6-classes-modules-c5169555317d",
+        "auteur": {
+            "_id": "0",
+            "nom": "ECMAScript",
+            "infos": "ECMAScript 6 est la norme développée par le W3C sur laquelle se base Javascript. C'est la version dans laquelle apparaît la programmation objet en JS."
+        }
     },
     {
         "_id": "2",
         "titre": "Des technologies et lignes de commandes",
         "droits": "0",
-        "intro": "Rassurez-vous, tout est proposé clé en main avec l'utilisation de lignes des commandes. Elles permettent de créer en quelques commandes 95% des outils de base dont nous aurons besoin.",
+        "intro": "Rassurez-vous, tout est proposé clé en main avec l'utilisation de lignes des commandes. Elles permettent de créer en quelques commandes 95% des outils de base dont nous aurons besoin. Les technologies comprennent : Webpack, Uglify, protractor, RXJS...",
         "img": "/assets/images/technologie.gif",
         "description": "Angular est basé sur Node et développé avec Typescript",
-        "lien": "https://cli.angular.io/"
+        "lien": "https://cli.angular.io/",
+        "auteur": {
+            "_id": "0",
+            "nom": "?",
+            "infos": "Les technologies de lignes de commandes sont développées à partir de composant de Node et permettent d'automatiser certaines tâches."
+        }
     },
     {
         "_id": "3",

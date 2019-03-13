@@ -8,7 +8,8 @@
         <div class="alert alert-danger" *ngIf="connexion.connecte">
             <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&#215;</span></button> Vous êtes connecté
         </div>
-        <form (ngSubmit)="authService.stockConnexion(true)" #f="ngForm" *ngIf="!connexion.connecte">
+        <form (ngSubmit)="connexion.stockConnexion(true)" #f="ngForm" *ngIf="!connexion.connecte">
+
             <div class="form-group">
                 <label for="login">Identifiant</label>
                 <input id="login" class="form-control" name="login" [(ngModel)]="donneesID.login" required #loginCtrl="ngModel">
@@ -24,6 +25,6 @@
             <button type="submit" *ngIf="!connexion.connecte" [disabled]="f.invalid">Se connecter !</button>
 
         </form>
-        <button (click)="authService.stockConnexion(false)" *ngIf="connexion.connecte">Se déconnecter</button>
+        <button (click)="connexion.stockConnexion(false)" *ngIf="connexion.connecte">Se déconnecter</button>
     </div>
 </section>

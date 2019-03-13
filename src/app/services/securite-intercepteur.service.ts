@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Observable, pipe } from 'rxjs';
 import {catchError} from "rxjs/internal/operators";
-// import 'rxjs/add/observable/throw';
-// import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class SecuriteIntercepteurService implements HttpInterceptor{
-
+  /**
+   * Interepteur qui ajouter un token d'identification à chaque requête HTTP sortante
+   * L'intercepteur clone un requête, transforme la requête clonée et l'envoie
+   */
   constructor() { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log("Interception d'une requête ... ");

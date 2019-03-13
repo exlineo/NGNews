@@ -15,16 +15,27 @@ import { ConnexionService } from '../services/connexion.service';
   styleUrls: ['./anews-detail.component.css']
 })
 export class AnewsDetailComponent implements OnInit, OnDestroy {
-
+  /**
+   * Index (ou _id) éventuel de la news à afficher
+   */
   newsId:number;
 
   donnees$:Subscription;
 
   news:NouvellesModel[];
   newsActu:NouvellesModel;
-
-  constructor(public donnees:AnewsService, private routeParams:ActivatedRoute, private connexion:ConnexionService, public sanitizer: DomSanitizer) { }
+  /**
+   * 
+   * @param donnees Service délivrant les données sur les news
+   * @param routeParams Paramètres de la route
+   * @param connexion Récupérer l'état de connexion d'un internaute
+   * @param sanitizer Gérer l'affichage de balises HTML
+   */
+  constructor(public donnees:AnewsService, private routeParams:ActivatedRoute, public connexion:ConnexionService, public sanitizer: DomSanitizer) { }
   
+  /**
+   * On initialise les données de la news à afficher à partir de l'index transmis
+   */
   ngOnInit() {
     this.newsId = 0; // Valeur par défaut de newsId corrigée sir
 
@@ -44,7 +55,9 @@ export class AnewsDetailComponent implements OnInit, OnDestroy {
    });
    
   }
-  // Destruction des données à la déconnexion
+  /**
+   * Supprimer la souscription aux observables pour libérer la mémoire
+   */
   ngOnDestroy(){
     this.donnees$.unsubscribe();
   }

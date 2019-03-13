@@ -108,6 +108,7 @@ article img {
 article img.edition {
     width: auto;
     float: right;
+    margin: 20px;
 }
 
 blockquote {

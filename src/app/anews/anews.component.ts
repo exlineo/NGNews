@@ -13,12 +13,22 @@ import { ConnexionService } from '../services/connexion.service';
   styleUrls: ['./anews.component.css']
 })
 export class AnewsComponent implements OnInit{
-  
+  /**
+   * Liste sauvegardée des news
+   */
   news:NouvellesModel[];
   visible:boolean=false;
-
+  /**
+   * Composant de listing des news, constitue la page d'accueil
+   * @param donnees Service qui récupère et stocke les données
+   * @param route Récupérer les routes
+   * @param sanitizer Un outil pour traiter les balise HTML dans les textes, afin de les afficher et les traiter s'il y en a
+   * @param connexion Savoir si l'internaute est connecté ou non
+   */
   constructor(private donnees:AnewsService, private route:Router, public sanitizer: DomSanitizer, private connexion:ConnexionService) {  }
-
+  /**
+   * Démonstration de l'utilisation d'observables pour récupérer et synchroniser des données
+   */
   ngOnInit() {
     this.news = this.donnees.news$.getValue(); // Si le tableau est déjà chargé
     console.log("Données initiées", this.news);
@@ -28,11 +38,17 @@ export class AnewsComponent implements OnInit{
         this.news = data;
     });
   }
-
+  /**
+   * Aller sur la page du détail des news en transmettant l'index de la news à afficher
+   * @param newsId Index de la news à afficher. Pourrait être remplacée par l'_id de la news
+   */
   goNews(newsId:number){
     console.log(newsId);
     this.route.navigate(['/news', newsId]);
   }
+  /**
+   * Une fonction qui ne sert à rien ^^ ou presque
+   */
   confirme(){
     console.log("C'est cliqué");
   }

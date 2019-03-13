@@ -12,8 +12,11 @@ import { ConnexionService } from '../services/connexion.service';
 export class MenuComponent implements OnInit {
 
   @Input() logo:string;
-
-  constructor(private connexion:ConnexionService) { }
+  /**
+   * Menu de l'application. Il gère les liens vers les routes
+   * @param connexion Vérifier l'authentification des internautes
+   */
+  constructor(public connexion:ConnexionService) { }
 
   ngOnInit() {
   }

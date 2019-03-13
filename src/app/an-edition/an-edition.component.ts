@@ -31,9 +31,18 @@ export class AnEditionComponent implements OnInit, OnDestroy {
     placeholder: "insert content..."
   };
 
+  /**
+   * 
+   * @param donnees Pointeur vers le service de données pour accéder à la liste des news chargées
+   * @param routeParams Instancier le router pour récupérer les id éventuels
+   */
   constructor(public donnees:AnewsService, private routeParams:ActivatedRoute) {}
 
-  // Initialiser la news à éditer
+  /**
+   * Initialisation du composant
+   * On définit la news à éditer en récupérant le paramètre ID de la route
+   * Si aucun paramètre n'est défini, on affiche la première route
+   */
   ngOnInit() {
     this.newsId = 0; // Paramétrer une valeur par défaut à l'ID
     this.routeParams.params.subscribe(params => {
@@ -55,16 +64,24 @@ export class AnEditionComponent implements OnInit, OnDestroy {
     });
     console.log("édition chargée");
   }
-  // Recevoir les données du submit
+  /**
+   * Fonction appelée lors de la soumission du formulaire
+   * @param f Données saisies dans le formulaire
+   */
   edition(f:NgForm){
     console.log(f.value);
   }
-  // Changer la news à éditer
+  /**
+   * Sélectionner une news
+   * @param e ID de la news à afficher (index du tableau des news)
+   */
   setNewsActu(e:any){
     this.newsActu = this.news[e.target.value];
     console.log(this.newsActu);
   }
-  // Arréter les souscriptions
+  /**
+   * Mettre fin aux souscriptions des observables pour éviter la surcharge de la mémoire
+   */
   ngOnDestroy(){
     this.donnees$.unsubscribe();
   }

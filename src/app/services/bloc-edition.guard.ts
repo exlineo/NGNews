@@ -7,7 +7,11 @@ import { ConnexionService } from './connexion.service';
 export class BlocEditionGuard implements CanActivate {
   
   constructor(private route:Router, private connexion:ConnexionService){}
-  // La guard qui va interdire l'affichage de la page d'édition
+  /**
+   * La méthode canActivate permet de bloquer des routes. Elles doit renvoyer un booléen
+   * @param next 
+   * @param state 
+   */
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
@@ -16,7 +20,11 @@ export class BlocEditionGuard implements CanActivate {
         return true;
       }
   }
-  // La garde qui charge le module d'édition lorsque les utilisateurs sont connectés
+  /**
+   * La garde qui charge le module d'édition lorsque les utilisateurs sont connectés
+   * @param next 
+   * @param state 
+   */
   canLoad(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
