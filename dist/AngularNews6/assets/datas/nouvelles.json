@@ -1,0 +1,174 @@
+[{
+        "droits": "0",
+        "_id": "0",
+        "titre": "Angular, un framework tout, tout, tout en un",
+        "description": "Typescript est utilisé comme langage de base, transpilé en Javascript en production. Développé par les équipes de Microsoft, ce (méta)langage étend Javascript pour offrir des capacités très prisées par les développeurs : typage des variables, interfaces...",
+        "img": "/assets/images/angular-hello.gif",
+        "intro": "Angular est un framework Javascript développé et maintenu par Google. Il se base sur les développements en classes et modules de Javascript.",
+        "lien": "https://angular.io/",
+        "auteur": {
+            "_id": "0",
+            "nom": "Google",
+            "infos": "Et ouais, ils en font des trucs chez Google"
+        }
+    },
+    {
+        "_id": "1",
+        "titre": "Programmation par modules ?",
+        "droits": "0",
+        "description": "Il est possible de concevoir une application entière uniquement avec du code en agissant sur le HTML depuis le code. Les classes peuvent être importées, exportées et instanciées comme dans une programmation objet classique.",
+        "img": "/assets/images/attentif.gif",
+        "intro": "La version ES6 de Javascript permet la programmation avec des classes et des modules.",
+        "lien": "https://medium.com/@darrion/javascript-es6-classes-modules-c5169555317d",
+        "auteur": {
+            "_id": "0",
+            "nom": "ECMAScript",
+            "infos": "ECMAScript 6 est la norme développée par le W3C sur laquelle se base Javascript. C'est la version dans laquelle apparaît la programmation objet en JS."
+        }
+    },
+    {
+        "_id": "2",
+        "titre": "Des technologies et lignes de commandes",
+        "droits": "0",
+        "intro": "Rassurez-vous, tout est proposé clé en main avec l'utilisation de lignes des commandes. Elles permettent de créer en quelques commandes 95% des outils de base dont nous aurons besoin. Les technologies comprennent : Webpack, Uglify, protractor, RXJS...",
+        "img": "/assets/images/technologie.gif",
+        "description": "Angular est basé sur Node et développé avec Typescript",
+        "lien": "https://cli.angular.io/",
+        "auteur": {
+            "_id": "0",
+            "nom": "?",
+            "infos": "Les technologies de lignes de commandes sont développées à partir de composant de Node et permettent d'automatiser certaines tâches."
+        }
+    },
+    {
+        "_id": "3",
+        "titre": "Des concepts clé",
+        "droits": "0",
+        "intro": "Annotations, Composants, injectables, gardes, intercepteurs",
+        "description": "Angular déploie tout un ensemble de concepts qui mettent à disposition des développeurs des outils professionnels pour la création d'applications. Il faut les connaître et les comprendre, ce sont un peu les notions stratégiques qu'il faut apprendre à manipuler.",
+        "img": "/assets/images/concept.gif",
+        "auteur": {
+            "_id": "0",
+            "nom": "W3C",
+            "infos": "La notions d'annotations est utilisé et va se développer dans le concept de décorateurs. Affaire à suivre."
+        }
+    },
+    {
+        "_id": "4",
+        "titre": "Une affaire de patron",
+        "droits": "0",
+        "lien": "https://docs.google.com/presentation/d/1Yiup02kHdjOdmCGZ0ucb7TzKBcUBErH4-YqP6tUVBEc/edit?usp=sharing",
+        "intro": "MVC, MVVM, MVP ? Quel patron utilisé par Angular ?",
+        "description": "Angular est un framework pour le développement de front-end d'applications. La technologie Ajax est mieux adaptée au patron MVVM (MVW selon les équipes d'Angular).",
+        "img": "/assets/images/patron.gif",
+        "auteur": {
+            "_id": "0",
+            "nom": "",
+            "infos": ""
+        }
+    },
+    {
+        "_id": "51",
+        "titre": "Les composants",
+        "droits": "1",
+        "intro": "Les composants sont les classes de base d'une application Angular.",
+        "description": "Dans d'autres systèmes ils peuvent se rapprocher des contrôleurs. Ils regroupent le code fonctionnel pour les vues HTML : affichage, interactions...",
+        "img": "/assets/images/controleur.gif",
+        "auteur": {
+            "_id": "0",
+            "nom": "",
+            "infos": ""
+        }
+    },
+    {
+        "_id": "52",
+        "titre": "Les modules",
+        "droits": "1",
+        "intro": "Aiguilleur du ciel, le module identifie et met à disposition toutes les ressources utiles de l'application.",
+        "description": "Il se charge d'importer toutes les classes qui seront utilisées dans un projet Angular. Tout ce qui est créé doit être identifié dans un module. Plusieurs types d'imports et d'exports sont mis à disposition dans les modules : imports, providers, export, declarations. Chaque type a une fonction spécifique.",
+        "img": "/assets/images/module.gif",
+        "auteur": {
+            "_id": "0",
+            "nom": "",
+            "infos": ""
+        }
+    },
+    {
+        "_id": "53",
+        "titre": "Les injectables",
+        "droits": "1",
+        "intro": "Les injectables pouvant être partagées dans l'application. Ils comprennent les services, guards, interceptors.",
+        "description": "Ce sont les classes dédiées à l'exécution de tâches partagées telles que les services (cf. ci-dessous). Ils permettent de gérer des données (services), de protéger des accès (guard), des gérer des requêtes HTTP (interceptors).",
+        "img": "/assets/images/injection.gif",
+        "auteur": {
+            "_id": "0",
+            "nom": "",
+            "infos": ""
+        }
+    },
+    {
+        "_id": "54",
+        "titre": "Routeurs",
+        "droits": "1",
+        "intro": "Les routes, ce sont les adresses des pages de l'application.",
+        "description": "Angular développe des applications dites 'one page' mais simule du multipages grâce aux routes. Ce sont les liens internes à l'application pour accéder aux différentes pages.",
+        "img": "/assets/images/routes.gif",
+        "auteur": {
+            "_id": "0",
+            "nom": "",
+            "infos": ""
+        }
+    },
+    {
+        "_id": "55",
+        "titre": "Services",
+        "droits": "1",
+        "intro": "Les services sont des classes dédiées à la gestion des données dans une application Angular.",
+        "description": "Ils sont instanciés dans les modules. Les composants pointent dessus pour récupérer des données et les gérer. Ils permettent de créer des singletons dont les données sont uniques et partagées.",
+        "img": "/assets/images/service.gif",
+        "auteur": {
+            "_id": "0",
+            "nom": "",
+            "infos": ""
+        }
+    },
+    {
+        "_id": "56",
+        "titre": "Les gardes",
+        "intro": "Les 'guard' permettent de restreindre des accès à une route (adresse) pour sécuriser l'application.",
+        "description": "Elles comportent plusieurs possibilités. Les deux principales sont l'activation d'adresses et ",
+        "img": "/assets/images/garde.gif",
+        "droits": "1",
+        "auteur": {
+            "_id": "0",
+            "nom": "",
+            "infos": ""
+        }
+    },
+    {
+        "_id": "57",
+        "titre": "Intercepteurs",
+        "droits": "1",
+        "img": "/assets/images/intercepteur.gif",
+        "intro": "Les intercepteurs surveillent les requêtes HTTP et déclenchent des événements en fonction de scénarii prédéfinis.",
+        "description": "Ils permettent de gérer des erreurs ou la sécurité de l'application d'une manière automatisée en filtrant toutes les requêtes. Un intercepteur gérera un scénario dans une requête (par exemple une erreur 404 ou 401) et déclenchera automatiquement un comportement.",
+        "auteur": {
+            "_id": "0",
+            "nom": "",
+            "infos": ""
+        }
+    },
+    {
+        "_id": "58",
+        "titre": "Les filtres (pipes (|))",
+        "droits": "1",
+        "intro": "Les filtres sont des outils pratiques qui automatisent des traitements sur les données.",
+        "description": "Ils sont utilisés dans des formulaires ou des listes, des données pour opérer des traitements en temps réel.",
+        "img": "/assets/images/filtre.gif",
+        "auteur": {
+            "_id": "0",
+            "nom": "",
+            "infos": ""
+        }
+    }
+]
