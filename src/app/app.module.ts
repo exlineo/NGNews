@@ -17,6 +17,7 @@ import { AnewsDetailComponent } from './anews-detail/anews-detail.component';
 import { MenuComponent } from './menu/menu.component';
 import { AnewsAuteurComponent } from './anews-detail/anews-auteur/anews-auteur.component';
 import { AnewsRelativeComponent } from './anews-detail/anews-relative/anews-relative.component';
+import { AnewsreserveesComponent } from './anews/anewsreservees/anewsreservees.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AnewsRelativeComponent } from './anews-detail/anews-relative/anews-rela
     AnewsDetailComponent,
     MenuComponent,
     AnewsAuteurComponent,
-    AnewsRelativeComponent
+    AnewsRelativeComponent,
+    AnewsreserveesComponent
   ],
   imports: [
     BrowserModule,

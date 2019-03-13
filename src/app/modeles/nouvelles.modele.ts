@@ -1,9 +1,11 @@
 import { AuteursModel } from "./auteurs.modele";
 
 export interface NouvellesModel {
-    id:number;
+    _id?:string;
     titre:string;
+    intro:string;
     description:string;
     img?:string;
+    droits:number;
     auteur?:AuteursModel;
 }

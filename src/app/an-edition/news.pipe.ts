@@ -8,15 +8,15 @@ export class NewsPipe implements PipeTransform {
     if (!values || !values.length) return [];
     if (!filtre) return values;
 
-    // return values.filter(v => String(v).toLowerCase().indexOf(filtre.toLowerCase()) >= 0);
+    // Filtrer le tableau fourni en gérant la casse
     return values.filter(v => {
       // Filtre sur le titre
       if(v.titre){
-        return v.titre.indexOf(filtre) >=0 ;
+        return v.titre.toLowerCase().indexOf(filtre.toLowerCase()) >=0 ;
       }
       // Filtre sur la description
       if(v.description){
-        return v.description.indexOf(filtre) >=0 ;
+        return v.description.toLowerCase().indexOf(filtre.toLowerCase()) >=0 ;
       }
     });
   }

@@ -5,8 +5,8 @@ import { Subscription } from 'rxjs';
 
 import { AnewsService } from '../services/anews.service';
 import { NouvellesModel } from '../modeles/nouvelles.modele';
-import { AuthService } from '../services/auth.service';
 import { NewsPipe } from './news.pipe';
+import { ConnexionService } from '../services/connexion.service';
 
 @Component({
   selector: 'app-an-edition',
@@ -31,7 +31,7 @@ export class AnEditionComponent implements OnInit, OnDestroy {
     placeholder: "insert content..."
   };
 
-  constructor(public donnees:AnewsService, private routeParams:ActivatedRoute, public authService:AuthService) {}
+  constructor(public donnees:AnewsService, private routeParams:ActivatedRoute) {}
 
   // Initialiser la news à éditer
   ngOnInit() {

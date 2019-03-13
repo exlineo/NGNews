@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Routes } from '@angular/router';
 
 import { AuthService } from '../services/auth.service';
+import { ConnexionService } from '../services/connexion.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,10 +12,8 @@ import { AuthService } from '../services/auth.service';
 export class MenuComponent implements OnInit {
 
   @Input() logo:string;
-  etatConnexion:boolean;
-  connecte:boolean = false;
 
-  constructor(public authService:AuthService) { }
+  constructor(private connexion:ConnexionService) { }
 
   ngOnInit() {
   }

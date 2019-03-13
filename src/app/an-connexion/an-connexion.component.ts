@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 
 import { AuthService } from '../services/auth.service';
+import { ConnexionService } from '../services/connexion.service';
 
 @Component({
   selector: 'app-an-connexion',
@@ -15,22 +16,10 @@ export class AnConnexionComponent implements OnInit {
     login: '',
     mdp: ''
   };
-  authErreur = false;
-  connecte:boolean = false;
 
-  constructor(private router: Router, public authService:AuthService) {
+  constructor(private router: Router, public authService:AuthService, private connexion:ConnexionService) {
   }
 
   ngOnInit() {
   }
-  // Authentifier à partir d'un http dans le service
-  authentifier() {
-    this.authErreur = false;
-    this.authService.authentifier(this.donneesID)
-      .subscribe(
-        () => this.router.navigate(['/']),
-        () => this.authErreur = true
-      );
-  }
-
 }

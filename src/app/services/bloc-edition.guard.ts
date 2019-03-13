@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Route, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-
-import {AuthService} from './auth.service';
+import { ConnexionService } from './connexion.service';
 
 @Injectable()
 export class BlocEditionGuard implements CanActivate {
   
-  constructor(private authService:AuthService, private route:Router){}
+  constructor(private route:Router, private connexion:ConnexionService){}
   // La guard qui va interdire l'affichage de la page d'édition
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       // On récupère la donnée sur le service d'authentification
-      if(this.authService.connecte){
+      if(this.connexion.connecte){
         return true;
       }
   }
@@ -22,7 +21,7 @@ export class BlocEditionGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       // On récupère la donnée sur le service d'authentification
-      if(this.authService.connecte){
+      if(this.connexion.connecte){
         return true;
       }
   }

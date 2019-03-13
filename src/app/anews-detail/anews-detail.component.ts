@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { NouvellesModel } from '../modeles/nouvelles.modele';
 import { AnewsService } from '../services/anews.service';
 import { AuthService } from '../services/auth.service';
+import { ConnexionService } from '../services/connexion.service';
 
 @Component({
   selector: 'app-anews-detail',
@@ -22,7 +23,7 @@ export class AnewsDetailComponent implements OnInit, OnDestroy {
   news:NouvellesModel[];
   newsActu:NouvellesModel;
 
-  constructor(public donnees:AnewsService, private routeParams:ActivatedRoute, public authService:AuthService, public sanitizer: DomSanitizer) { }
+  constructor(public donnees:AnewsService, private routeParams:ActivatedRoute, private connexion:ConnexionService, public sanitizer: DomSanitizer) { }
   
   ngOnInit() {
     this.newsId = 0; // Valeur par défaut de newsId corrigée sir

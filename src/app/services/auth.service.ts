@@ -1,15 +1,15 @@
 import { Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { ConnexionService } from './connexion.service';
 
 @Injectable()
 export class AuthService {
   
-  connecte: boolean = false;
   connexionSub:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient) {
-    this.connecte = this.recupereConnexion();
+  constructor(private http: HttpClient, private connexion:ConnexionService) {
+    this.connexion.connecte = this.recupereConnexion();
   }
   // Créer un nouveau compte
   enregistre(login, mdp): Observable<any> {
@@ -22,14 +22,14 @@ export class AuthService {
   }
   // Stock l'enregistrement dans le local storage
   stockConnexion(tag: boolean) {
-    this.connecte = tag;
-    localStorage.setItem('connexion', JSON.stringify(tag));
+    this.connexion.connecte = tag;
+    sessionStorage.setItem('connexion', JSON.stringify(tag));
   }
   // Récupérer la connexion si elle a été stockée
   recupereConnexion():boolean{
-    if(localStorage.getItem('connexion')){
-      return JSON.parse(localStorage.getItem('connexion'));
+    if(sessionStorage.getItem('connexion')){
+      return JSON.parse(sessionStorage.getItem('connexion'));
     }
-      return this.connecte;
+      return this.connexion.connecte;
   }
 }

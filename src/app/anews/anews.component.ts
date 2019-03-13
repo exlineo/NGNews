@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 
 import { NouvellesModel } from '../modeles/nouvelles.modele';
 import { AnewsService } from '../services/anews.service';
-import { AuthService } from '../services/auth.service';
+import { ConnexionService } from '../services/connexion.service';
 
 @Component({
   selector: 'app-anews',
@@ -17,7 +17,7 @@ export class AnewsComponent implements OnInit{
   news:NouvellesModel[];
   visible:boolean=false;
 
-  constructor(private donnees:AnewsService, private route:Router, public authService:AuthService, public sanitizer: DomSanitizer) {  }
+  constructor(private donnees:AnewsService, private route:Router, public sanitizer: DomSanitizer, private connexion:ConnexionService) {  }
 
   ngOnInit() {
     this.news = this.donnees.news$.getValue(); // Si le tableau est déjà chargé

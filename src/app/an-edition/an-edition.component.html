@@ -20,7 +20,7 @@
                 <input id="image" class="form-control" type="text" name="image" [(ngModel)]="newsActu.img" #imgCtrl="ngModel">
                 <div *ngIf="imgCtrl.dirty && imgCtrl.hasError('required')">Vous pouvez ajouter une image</div>
             </div>
-
+            <!-- Envoyer le formulaire -->
             <button type="submit" [disabled]="f.invalid">Let's Go</button>
             <button type="reset">Annuler ?</button>
         </form>

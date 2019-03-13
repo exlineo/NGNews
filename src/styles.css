@@ -21,6 +21,11 @@ h1,
 h2,
 h3 {
     font-family: 'Lora', serif;
+    padding: 10px 20px;
+}
+
+p {
+    padding: 10px 20px;
 }
 
 a {
@@ -83,15 +88,26 @@ select {
 }
 
 
-/* Utilisé dans les sections des pages ne contenant qu'un seul article */
+/* Mise en page des pages de formulaires */
 
-.unique article h2,
-.unique article p {
-    padding: 10px 20px;
+.formulaire {
+    display: flex;
 }
+
+.formulaire>div {
+    margin: auto;
+}
+
+
+/* Utilisé dans les sections des pages ne contenant qu'un seul article */
 
 article img {
     width: 100%;
+}
+
+article img.edition {
+    width: auto;
+    float: right;
 }
 
 blockquote {
