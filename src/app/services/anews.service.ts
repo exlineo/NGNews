@@ -39,20 +39,16 @@ export class AnewsService{
    * Méthode d'identification d'une news spécifique à afficher. Prend en compte la valeur de ID
    * @param id index ou _id d'une noucelle à récupérer
    */
-  getNews(id: number | string) {
+  getNews(id: number | string):NouvellesModel {
+    // let tmp = this.news$.getValue();
     // Tester si l'id de la news est de type ObjectId de MongoDB
-    if(typeof id == 'string'){
-      if(id.indexOf('_')){
-        for(let i in this.news){
-          if(i['_id'] == id){
-            return i;
-          }
-        }
+    for(let i in this.news){
+      console.log(i);
+      if(this.news[i]['_id'] == id){
+        console.log("Objet retourné", i);
+        return this.news[i];
       }
     }
-    // Sinon on renvoie la news du tableau des news
-    let tmp = this.news$.getValue();
-    return tmp[id];
   }
 
 }

@@ -47,8 +47,8 @@ export class AnEditionComponent implements OnInit, OnDestroy {
     this.newsId = 0; // Paramétrer une valeur par défaut à l'ID
     this.routeParams.params.subscribe(params => {
       this.newsId = +params['id'];
-      this.news = this.donnees.news$.getValue();
-      this.newsActu = this.news[this.newsId]; // (+) converts string 'id' to a number
+      this.news = this.donnees.news;
+      this.newsActu = this.donnees.getNews(this.newsId); // (+) converts string 'id' to a number
       // Récupérer les données du service
       this.donnees$ = this.donnees.news$.subscribe(
         data => {

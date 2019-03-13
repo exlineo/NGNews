@@ -5,16 +5,17 @@
 
         <img [src]="newsActu.img" />
         <!-- Sanitisation pour permettre l'affichage de balises HTML -->
+        <p [innerHtml]="sanitizer.bypassSecurityTrustHtml( newsActu.intro )"></p>
         <p [innerHtml]="sanitizer.bypassSecurityTrustHtml( newsActu.description )"></p>
         <a href [routerLink]="['/edition', newsId]" *ngIf="connexion.connecte"><img src="../assets/images/Settings.png" class="edition" /></a>
     </article>
 
 </section>
 <!-- Afficher l'auteur d'une nouvelle -->
-<section class="unique">
+<section class="unique" *ngIf="newsActu.auteur">
     <article>
         <blockquote>
-            <app-anews-auteur [auteur]="newsActu['auteur']"></app-anews-auteur>
+            <app-anews-auteur [auteur]="newsActu.auteur"></app-anews-auteur>
         </blockquote>
     </article>
 </section>

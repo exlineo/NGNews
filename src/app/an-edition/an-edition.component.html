@@ -3,7 +3,7 @@
         <h1>Editer une news</h1>
         <input name="filtre" [(ngModel)]="filtre" placeholder="Filtrer les news">
         <select id="newsSelect" class="form-control" name="newsSelect" (change)="setNewsActu($event)">
-            <option *ngFor="let n of (news | newsPipe:filtre); index as i" [value]="i | number">{{n.titre}}</option>
+            <option *ngFor="let n of (donnees.news | newsPipe:filtre); index as i" [value]="i | number">{{n.titre}}</option>
         </select>
         <form (ngSubmit)="edition(f)" name="edition" #f="ngForm">
             <div>

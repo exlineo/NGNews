@@ -12,5 +12,6 @@ export class AnewsAuteurComponent {
    */
   @Input() auteur:AuteursModel;
 
-  constructor() { }
+  constructor() {
+  }
 }

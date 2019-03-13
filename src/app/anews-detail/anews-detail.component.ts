@@ -35,31 +35,23 @@ export class AnewsDetailComponent implements OnInit, OnDestroy {
   
   /**
    * On initialise les données de la news à afficher à partir de l'index transmis
+   * La news est récupérée directement depuis le service
    */
   ngOnInit() {
-    this.newsId = 0; // Valeur par défaut de newsId corrigée sir
+    this.newsId = 0; // Valeur par défaut de newsId
 
     this.routeParams.params.subscribe(params => {
       // Paramétrage de l'actualité si le tableau est déjà chargé
       this.newsId = +params['id']; // (+) converts string 'id' to a number
-      this.newsActu = this.donnees.news$.getValue()[this.newsId];
-      // console.log("News actu", this.newsActu, this.donnees.news$.getValue(), this.donnees.news);
-      this.donnees$ = this.donnees.news$.subscribe(
-        data => {
-          // this.news = data;
-          if(this.newsId){
-            this.news = data;
-            this.newsActu = data[this.newsId];
-          }
-      });
+      console.log(this.newsId);
+      this.newsActu = this.donnees.getNews(this.newsId);
    });
    
   }
   /**
-   * Supprimer la souscription aux observables pour libérer la mémoire
+   * Supprimer la souscription aux observables s'il y en a pour libérer la mémoire
    */
   ngOnDestroy(){
-    this.donnees$.unsubscribe();
   }
 
 }

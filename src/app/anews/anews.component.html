@@ -3,6 +3,6 @@
         <div class="img" [style.backgroundImage]="'url('+n.img+')'"></div>
         <h3>{{n.titre}}</h3>
         <!-- Gestion des balises HTML injectées -->
-        <p [innerHtml]="sanitizer.bypassSecurityTrustHtml( n.description )"></p>
+        <p [innerHtml]="sanitizer.bypassSecurityTrustHtml( n.intro )"></p>
     </article>
 </section>

@@ -43,7 +43,6 @@ export class AnewsComponent implements OnInit{
    * @param newsId Index de la news à afficher. Pourrait être remplacée par l'_id de la news
    */
   goNews(newsId:number){
-    console.log(newsId);
     this.route.navigate(['/news', newsId]);
   }
   /**

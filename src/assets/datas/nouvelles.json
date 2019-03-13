@@ -46,7 +46,12 @@
         "droits": "0",
         "intro": "Annotations, Composants, injectables, gardes, intercepteurs",
         "description": "Angular déploie tout un ensemble de concepts qui mettent à disposition des développeurs des outils professionnels pour la création d'applications. Il faut les connaître et les comprendre, ce sont un peu les notions stratégiques qu'il faut apprendre à manipuler.",
-        "img": "/assets/images/concept.gif"
+        "img": "/assets/images/concept.gif",
+        "auteur": {
+            "_id": "0",
+            "nom": "W3C",
+            "infos": "La notions d'annotations est utilisé et va se développer dans le concept de décorateurs. Affaire à suivre."
+        }
     },
     {
         "_id": "4",
@@ -55,7 +60,12 @@
         "lien": "https://docs.google.com/presentation/d/1Yiup02kHdjOdmCGZ0ucb7TzKBcUBErH4-YqP6tUVBEc/edit?usp=sharing",
         "intro": "MVC, MVVM, MVP ? Quel patron utilisé par Angular ?",
         "description": "Angular est un framework pour le développement de front-end d'applications. La technologie Ajax est mieux adaptée au patron MVVM (MVW selon les équipes d'Angular).",
-        "img": "/assets/images/patron.gif"
+        "img": "/assets/images/patron.gif",
+        "auteur": {
+            "_id": "0",
+            "nom": "",
+            "infos": ""
+        }
     },
     {
         "_id": "51",
@@ -63,7 +73,12 @@
         "droits": "1",
         "intro": "Les composants sont les classes de base d'une application Angular.",
         "description": "Dans d'autres systèmes ils peuvent se rapprocher des contrôleurs. Ils regroupent le code fonctionnel pour les vues HTML : affichage, interactions...",
-        "img": "/assets/images/controleur.gif"
+        "img": "/assets/images/controleur.gif",
+        "auteur": {
+            "_id": "0",
+            "nom": "",
+            "infos": ""
+        }
     },
     {
         "_id": "52",
@@ -71,7 +86,12 @@
         "droits": "1",
         "intro": "Aiguilleur du ciel, le module identifie et met à disposition toutes les ressources utiles de l'application.",
         "description": "Il se charge d'importer toutes les classes qui seront utilisées dans un projet Angular. Tout ce qui est créé doit être identifié dans un module. Plusieurs types d'imports et d'exports sont mis à disposition dans les modules : imports, providers, export, declarations. Chaque type a une fonction spécifique.",
-        "img": "/assets/images/module.gif"
+        "img": "/assets/images/module.gif",
+        "auteur": {
+            "_id": "0",
+            "nom": "",
+            "infos": ""
+        }
     },
     {
         "_id": "53",
@@ -79,7 +99,12 @@
         "droits": "1",
         "intro": "Les injectables pouvant être partagées dans l'application. Ils comprennent les services, guards, interceptors.",
         "description": "Ce sont les classes dédiées à l'exécution de tâches partagées telles que les services (cf. ci-dessous). Ils permettent de gérer des données (services), de protéger des accès (guard), des gérer des requêtes HTTP (interceptors).",
-        "img": "/assets/images/injection.gif"
+        "img": "/assets/images/injection.gif",
+        "auteur": {
+            "_id": "0",
+            "nom": "",
+            "infos": ""
+        }
     },
     {
         "_id": "54",
@@ -87,7 +112,12 @@
         "droits": "1",
         "intro": "Les routes, ce sont les adresses des pages de l'application.",
         "description": "Angular développe des applications dites 'one page' mais simule du multipages grâce aux routes. Ce sont les liens internes à l'application pour accéder aux différentes pages.",
-        "img": "/assets/images/routes.gif"
+        "img": "/assets/images/routes.gif",
+        "auteur": {
+            "_id": "0",
+            "nom": "",
+            "infos": ""
+        }
     },
     {
         "_id": "55",
@@ -95,7 +125,12 @@
         "droits": "1",
         "intro": "Les services sont des classes dédiées à la gestion des données dans une application Angular.",
         "description": "Ils sont instanciés dans les modules. Les composants pointent dessus pour récupérer des données et les gérer. Ils permettent de créer des singletons dont les données sont uniques et partagées.",
-        "img": "/assets/images/service.gif"
+        "img": "/assets/images/service.gif",
+        "auteur": {
+            "_id": "0",
+            "nom": "",
+            "infos": ""
+        }
     },
     {
         "_id": "56",
@@ -103,7 +138,12 @@
         "intro": "Les 'guard' permettent de restreindre des accès à une route (adresse) pour sécuriser l'application.",
         "description": "Elles comportent plusieurs possibilités. Les deux principales sont l'activation d'adresses et ",
         "img": "/assets/images/garde.gif",
-        "droits": "1"
+        "droits": "1",
+        "auteur": {
+            "_id": "0",
+            "nom": "",
+            "infos": ""
+        }
     },
     {
         "_id": "57",
@@ -111,7 +151,12 @@
         "droits": "1",
         "img": "/assets/images/intercepteur.gif",
         "intro": "Les intercepteurs surveillent les requêtes HTTP et déclenchent des événements en fonction de scénarii prédéfinis.",
-        "description": "Ils permettent de gérer des erreurs ou la sécurité de l'application d'une manière automatisée en filtrant toutes les requêtes. Un intercepteur gérera un scénario dans une requête (par exemple une erreur 404 ou 401) et déclenchera automatiquement un comportement."
+        "description": "Ils permettent de gérer des erreurs ou la sécurité de l'application d'une manière automatisée en filtrant toutes les requêtes. Un intercepteur gérera un scénario dans une requête (par exemple une erreur 404 ou 401) et déclenchera automatiquement un comportement.",
+        "auteur": {
+            "_id": "0",
+            "nom": "",
+            "infos": ""
+        }
     },
     {
         "_id": "58",
@@ -119,6 +164,11 @@
         "droits": "1",
         "intro": "Les filtres sont des outils pratiques qui automatisent des traitements sur les données.",
         "description": "Ils sont utilisés dans des formulaires ou des listes, des données pour opérer des traitements en temps réel.",
-        "img": "/assets/images/filtre.gif"
+        "img": "/assets/images/filtre.gif",
+        "auteur": {
+            "_id": "0",
+            "nom": "",
+            "infos": ""
+        }
     }
 ]
