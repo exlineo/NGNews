@@ -25,7 +25,7 @@ export class AnewsService{
     this.chargeDonnees();
   }
   /**
-   * Appel des données en Ajax et sauvegarde dans un objet news et un observable news$
+   * Appel des données en Ajax et sauvegarde dans un objet news et un observable news$ pour l'exemple
    */
   chargeDonnees() {
     this.http.get<NouvellesModel[]>('/assets/datas/nouvelles.json')
