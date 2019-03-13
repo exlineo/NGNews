@@ -28,7 +28,7 @@ export class AnewsService{
    * Appel des données en Ajax et sauvegarde dans un objet news et un observable news$
    */
   chargeDonnees() {
-    this.http.get<NouvellesModel[]>('../assets/datas/nouvelles.json')
+    this.http.get<NouvellesModel[]>('/assets/datas/nouvelles.json')
     .subscribe(data => {
       this.news = data;
       this.news$.next(data);
