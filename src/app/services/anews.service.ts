@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 
 import { BehaviorSubject } from 'rxjs';
@@ -16,19 +17,20 @@ export class AnewsService{
    * Le BehavioSubject est un observable qui s'initialise avec des données de base évitant des erreurs liées à un objet vide. Nous l'utilisons pour montrer comment ça marche mais nous pouvons nous en passer dans l'application
    */
   news$: BehaviorSubject<NouvellesModel[]> = new BehaviorSubject<NouvellesModel[]>([]);
-  
+  prepareNews:string;
   /**
    * Service de chargement et gestion des news à afficher dans l'application
    * @param http Instanciation de la classe HttpClient pour utiliser des requêtes Ajax
+   * @param location Donner une base aux URLs pour éviter les erreurs de chargement local
    */
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private location:Location) {
     this.chargeDonnees();
   }
   /**
    * Appel des données en Ajax et sauvegarde dans un objet news et un observable news$ pour l'exemple
    */
   chargeDonnees() {
-    this.http.get<NouvellesModel[]>('/assets/datas/nouvelles.json')
+    this.http.get<NouvellesModel[]>(this.location.prepareExternalUrl('/assets/datas/nouvelles.json'))
     .subscribe(data => {
       this.news = data;
       this.news$.next(data);
