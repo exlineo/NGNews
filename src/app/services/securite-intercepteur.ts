@@ -4,7 +4,7 @@ import { Observable, pipe } from 'rxjs';
 import {catchError} from "rxjs/internal/operators";
 
 @Injectable()
-export class SecuriteIntercepteurService implements HttpInterceptor{
+export class SecuriteIntercepteur implements HttpInterceptor{
   /**
    * Interepteur qui ajouter un token d'identification à chaque requête HTTP sortante
    * L'intercepteur clone un requête, transforme la requête clonée et l'envoie
