@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { SecuriteIntercepteur } from './securite-intercepteur';
+import { SecuriteIntercepteur } from './securite.intercepteur';
 
 describe('SecuriteIntercepteurService', () => {
   beforeEach(() => {

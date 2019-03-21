@@ -11,13 +11,16 @@ import { AppComponent } from './app.component';
 import { AnewsComponent } from './anews/anews.component';
 import { AnConnexionComponent } from './an-connexion/an-connexion.component';
 import { Erreur404Component } from './erreur404/erreur404.component';
-import { AnewsService } from './services/anews.service';
-import { AuthService } from './services/auth.service';
 import { AnewsDetailComponent } from './anews-detail/anews-detail.component';
 import { MenuComponent } from './menu/menu.component';
 import { AnewsAuteurComponent } from './anews-detail/anews-auteur/anews-auteur.component';
 import { AnewsRelativeComponent } from './anews-detail/anews-relative/anews-relative.component';
 import { AnewsreserveesComponent } from './anews/anewsreservees/anewsreservees.component';
+
+import { AnewsService } from './services/anews.service';
+import { AuthService } from './services/auth.service';
+import { AuthIntercepteur } from './services/auth.intercepteur';
+import { SecuriteIntercepteur } from './services/securite.intercepteur';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,7 @@ import { AnewsreserveesComponent } from './anews/anewsreservees/anewsreservees.c
     NoopAnimationsModule,
     AppRoutingModule
   ],
-  providers: [AnewsService, AuthService],
+  providers: [AnewsService, AuthService, { provide: HTTP_INTERCEPTORS, useClass:AuthIntercepteur, multi: true }, { provide: HTTP_INTERCEPTORS, useClass:SecuriteIntercepteur, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
