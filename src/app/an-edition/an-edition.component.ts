@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -15,7 +15,7 @@ import { ConnexionService } from '../services/connexion.service';
     './an-edition.component.css'
   ]
 })
-export class AnEditionComponent implements OnInit, OnDestroy {
+export class AnEditionComponent implements OnInit, OnDestroy, AfterViewInit{
 
   newsId:number;
   // news:NouvellesModel={id:-1, titre:'',description:'',img:''};
@@ -65,6 +65,18 @@ export class AnEditionComponent implements OnInit, OnDestroy {
     console.log("édition chargée");
   }
   
+  ngAfterViewInit() {
+    // tinymce.init({skin_url: './assets/skins/lightgray',
+    //   setup: editor => {
+    //     editor = editor;
+    //     editor.on('keyup', () => {
+    //       const content = editor.getContent();
+    //       this.onEditorKeyup.emit(content);
+    //     });
+    //   },
+    // });
+  }
+
   /**
    * Fonction appelée lors de la soumission du formulaire
    * @param f Données saisies dans le formulaire
