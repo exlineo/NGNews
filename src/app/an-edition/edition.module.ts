@@ -8,6 +8,7 @@ import { AnAuteursComponent } from './an-auteurs/an-auteurs.component';
 import { EditionRoutingModule } from './edition-routing.module';
 /**
  * Module tiers chargé lorsque la route edition est appelée et que l'authentification est valide
+ * L'intégration de tinymce nécessite de paramétrer les URL pour la mise en production
  */
 @NgModule({
   imports: [
