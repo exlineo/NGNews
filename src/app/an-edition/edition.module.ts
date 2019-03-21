@@ -14,7 +14,7 @@ import { EditionRoutingModule } from './edition-routing.module';
     CommonModule,
     FormsModule,
     EditionRoutingModule,
-    TinymceModule.withConfig({baseURL:'./assets'})
+    TinymceModule.withConfig({skin_url:'./assets'})
   ],
   declarations: [
     AnEditionComponent,
