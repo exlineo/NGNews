@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>angular-news6 documentation</title>
+        <title>NGNews</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">angular-news6 documentation</a>
+            <a href="../" class="navbar-brand">NGNews</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -307,8 +307,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">src/app/anews/anews.component.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/app/anews/anews.component.ts:51</a></div>
                 </td>
             </tr>
 
@@ -599,7 +599,6 @@ export class AnewsComponent implements OnInit{
    * @param newsId Index de la news à afficher. Pourrait être remplacée par l&#x27;_id de la news
    */
   goNews(newsId:number){
-    console.log(newsId);
     this.route.navigate([&#x27;/news&#x27;, newsId]);
   }
   /**
@@ -618,7 +617,7 @@ export class AnewsComponent implements OnInit{
         &lt;div class&#x3D;&quot;img&quot; [style.backgroundImage]&#x3D;&quot;&#x27;url(&#x27;+n.img+&#x27;)&#x27;&quot;&gt;&lt;/div&gt;
         &lt;h3&gt;{{n.titre}}&lt;/h3&gt;
         &lt;!-- Gestion des balises HTML injectées --&gt;
-        &lt;p [innerHtml]&#x3D;&quot;sanitizer.bypassSecurityTrustHtml( n.description )&quot;&gt;&lt;/p&gt;
+        &lt;p [innerHtml]&#x3D;&quot;sanitizer.bypassSecurityTrustHtml( n.intro )&quot;&gt;&lt;/p&gt;
     &lt;/article&gt;
 &lt;/section&gt;</code></pre>
     </div>
@@ -686,7 +685,7 @@ article .img {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section>    <article *ngFor="let n of news" (click)=goNews(n._id)>        <div class="img" [style.backgroundImage]="\'url(\'+n.img+\')\'"></div>        <h3>{{n.titre}}</h3>        <!-- Gestion des balises HTML injectées -->        <p [innerHtml]="sanitizer.bypassSecurityTrustHtml( n.description )"></p>    </article></section></div>'
+        var COMPONENT_TEMPLATE = '<div><section>    <article *ngFor="let n of news" (click)=goNews(n._id)>        <div class="img" [style.backgroundImage]="\'url(\'+n.img+\')\'"></div>        <h3>{{n.titre}}</h3>        <!-- Gestion des balises HTML injectées -->        <p [innerHtml]="sanitizer.bypassSecurityTrustHtml( n.intro )"></p>    </article></section></div>'
     var COMPONENTS = [{'name': 'AnAuteursComponent', 'selector': 'app-an-auteurs'},{'name': 'AnConnexionComponent', 'selector': 'app-an-connexion'},{'name': 'AnEditionComponent', 'selector': 'app-an-edition'},{'name': 'AnewsAuteurComponent', 'selector': 'app-anews-auteur'},{'name': 'AnewsComponent', 'selector': 'app-anews'},{'name': 'AnewsDetailComponent', 'selector': 'app-anews-detail'},{'name': 'AnewsRelativeComponent', 'selector': 'app-anews-relative'},{'name': 'AnewsreserveesComponent', 'selector': 'app-anewsreservees'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'Erreur404Component', 'selector': 'app-erreur404'},{'name': 'MenuComponent', 'selector': 'app-menu'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AnewsComponent'};

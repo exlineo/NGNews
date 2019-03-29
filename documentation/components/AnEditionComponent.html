@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>angular-news6 documentation</title>
+        <title>NGNews</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">angular-news6 documentation</a>
+            <a href="../" class="navbar-brand">NGNews</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -72,6 +72,7 @@
     <p class="comment">
                     <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
                     <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+                    <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
     </p>
 
 
@@ -175,6 +176,9 @@
                         <ul class="index-list">
                             <li>
                                 <a href="#edition">edition</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit">ngAfterViewInit</a>
                             </li>
                             <li>
                                 <a href="#ngOnDestroy">ngOnDestroy</a>
@@ -298,8 +302,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="71"
-                            class="link-to-prism">src/app/an-edition/an-edition.component.ts:71</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">src/app/an-edition/an-edition.component.ts:84</a></div>
                 </td>
             </tr>
 
@@ -357,6 +361,45 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <b>
+                            ngAfterViewInit
+                        </b>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">src/app/an-edition/an-edition.component.ts:68</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="ngOnDestroy"></a>
                     <span class="name">
                         <b>
@@ -375,8 +418,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">src/app/an-edition/an-edition.component.ts:85</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">src/app/an-edition/an-edition.component.ts:98</a></div>
                 </td>
             </tr>
 
@@ -459,8 +502,8 @@ Si aucun paramètre n&#39;est défini, on affiche la première route</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">src/app/an-edition/an-edition.component.ts:78</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">src/app/an-edition/an-edition.component.ts:91</a></div>
                 </td>
             </tr>
 
@@ -778,7 +821,7 @@ Si aucun paramètre n&#39;est défini, on affiche la première route</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, OnDestroy } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, OnDestroy, AfterViewInit } from &#x27;@angular/core&#x27;;
 import { NgForm } from &#x27;@angular/forms&#x27;;
 import { ActivatedRoute } from &#x27;@angular/router&#x27;;
 import { Subscription } from &#x27;rxjs&#x27;;
@@ -795,7 +838,7 @@ import { ConnexionService } from &#x27;../services/connexion.service&#x27;;
     &#x27;./an-edition.component.css&#x27;
   ]
 })
-export class AnEditionComponent implements OnInit, OnDestroy {
+export class AnEditionComponent implements OnInit, OnDestroy, AfterViewInit{
 
   newsId:number;
   // news:NouvellesModel&#x3D;{id:-1, titre:&#x27;&#x27;,description:&#x27;&#x27;,img:&#x27;&#x27;};
@@ -827,8 +870,8 @@ export class AnEditionComponent implements OnInit, OnDestroy {
     this.newsId &#x3D; 0; // Paramétrer une valeur par défaut à l&#x27;ID
     this.routeParams.params.subscribe(params &#x3D;&gt; {
       this.newsId &#x3D; +params[&#x27;id&#x27;];
-      this.news &#x3D; this.donnees.news$.getValue();
-      this.newsActu &#x3D; this.news[this.newsId]; // (+) converts string &#x27;id&#x27; to a number
+      this.news &#x3D; this.donnees.news;
+      this.newsActu &#x3D; this.donnees.getNews(this.newsId); // (+) converts string &#x27;id&#x27; to a number
       // Récupérer les données du service
       this.donnees$ &#x3D; this.donnees.news$.subscribe(
         data &#x3D;&gt; {
@@ -844,6 +887,19 @@ export class AnEditionComponent implements OnInit, OnDestroy {
     });
     console.log(&quot;édition chargée&quot;);
   }
+  
+  ngAfterViewInit() {
+    // tinymce.init({skin_url: &#x27;./assets/skins/lightgray&#x27;,
+    //   setup: editor &#x3D;&gt; {
+    //     editor &#x3D; editor;
+    //     editor.on(&#x27;keyup&#x27;, () &#x3D;&gt; {
+    //       const content &#x3D; editor.getContent();
+    //       this.onEditorKeyup.emit(content);
+    //     });
+    //   },
+    // });
+  }
+
   /**
    * Fonction appelée lors de la soumission du formulaire
    * @param f Données saisies dans le formulaire
@@ -875,7 +931,7 @@ export class AnEditionComponent implements OnInit, OnDestroy {
         &lt;h1&gt;Editer une news&lt;/h1&gt;
         &lt;input name&#x3D;&quot;filtre&quot; [(ngModel)]&#x3D;&quot;filtre&quot; placeholder&#x3D;&quot;Filtrer les news&quot;&gt;
         &lt;select id&#x3D;&quot;newsSelect&quot; class&#x3D;&quot;form-control&quot; name&#x3D;&quot;newsSelect&quot; (change)&#x3D;&quot;setNewsActu($event)&quot;&gt;
-            &lt;option *ngFor&#x3D;&quot;let n of (news | newsPipe:filtre); index as i&quot; [value]&#x3D;&quot;i | number&quot;&gt;{{n.titre}}&lt;/option&gt;
+            &lt;option *ngFor&#x3D;&quot;let n of (donnees.news | newsPipe:filtre); index as i&quot; [value]&#x3D;&quot;i | number&quot;&gt;{{n.titre}}&lt;/option&gt;
         &lt;/select&gt;
         &lt;form (ngSubmit)&#x3D;&quot;edition(f)&quot; name&#x3D;&quot;edition&quot; #f&#x3D;&quot;ngForm&quot;&gt;
             &lt;div&gt;
@@ -935,7 +991,7 @@ export class AnEditionComponent implements OnInit, OnDestroy {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section class="unique">    <article>        <h1>Editer une news</h1>        <input name="filtre" [(ngModel)]="filtre" placeholder="Filtrer les news">        <select id="newsSelect" class="form-control" name="newsSelect" (change)="setNewsActu($event)">            <option *ngFor="let n of (news | newsPipe:filtre); index as i" [value]="i | number">{{n.titre}}</option>        </select>        <form (ngSubmit)="edition(f)" name="edition" #f="ngForm">            <div>                <label for="titre" id="titre-label">Titre*</label>                <input id="titre" class="form-control" required name="titre" [(ngModel)]="newsActu.titre" #titreCtrl="ngModel">                <div *ngIf="titreCtrl.dirty && titreCtrl.hasError(\'required\')" id="titre-warning">Un titre est requis</div>            </div>            <div>                <app-tinymce [(ngModel)]="newsActu.description" name="description"></app-tinymce>            </div>            <div>                <label for="image">Image</label>                <input id="image" class="form-control" type="text" name="image" [(ngModel)]="newsActu.img" #imgCtrl="ngModel">                <div *ngIf="imgCtrl.dirty && imgCtrl.hasError(\'required\')">Vous pouvez ajouter une image</div>            </div>            <!-- Envoyer le formulaire -->            <button type="submit" [disabled]="f.invalid">Let\'s Go</button>            <button type="reset">Annuler ?</button>        </form>    </article></section></div>'
+        var COMPONENT_TEMPLATE = '<div><section class="unique">    <article>        <h1>Editer une news</h1>        <input name="filtre" [(ngModel)]="filtre" placeholder="Filtrer les news">        <select id="newsSelect" class="form-control" name="newsSelect" (change)="setNewsActu($event)">            <option *ngFor="let n of (donnees.news | newsPipe:filtre); index as i" [value]="i | number">{{n.titre}}</option>        </select>        <form (ngSubmit)="edition(f)" name="edition" #f="ngForm">            <div>                <label for="titre" id="titre-label">Titre*</label>                <input id="titre" class="form-control" required name="titre" [(ngModel)]="newsActu.titre" #titreCtrl="ngModel">                <div *ngIf="titreCtrl.dirty && titreCtrl.hasError(\'required\')" id="titre-warning">Un titre est requis</div>            </div>            <div>                <app-tinymce [(ngModel)]="newsActu.description" name="description"></app-tinymce>            </div>            <div>                <label for="image">Image</label>                <input id="image" class="form-control" type="text" name="image" [(ngModel)]="newsActu.img" #imgCtrl="ngModel">                <div *ngIf="imgCtrl.dirty && imgCtrl.hasError(\'required\')">Vous pouvez ajouter une image</div>            </div>            <!-- Envoyer le formulaire -->            <button type="submit" [disabled]="f.invalid">Let\'s Go</button>            <button type="reset">Annuler ?</button>        </form>    </article></section></div>'
     var COMPONENTS = [{'name': 'AnAuteursComponent', 'selector': 'app-an-auteurs'},{'name': 'AnConnexionComponent', 'selector': 'app-an-connexion'},{'name': 'AnEditionComponent', 'selector': 'app-an-edition'},{'name': 'AnewsAuteurComponent', 'selector': 'app-anews-auteur'},{'name': 'AnewsComponent', 'selector': 'app-anews'},{'name': 'AnewsDetailComponent', 'selector': 'app-anews-detail'},{'name': 'AnewsRelativeComponent', 'selector': 'app-anews-relative'},{'name': 'AnewsreserveesComponent', 'selector': 'app-anewsreservees'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'Erreur404Component', 'selector': 'app-erreur404'},{'name': 'MenuComponent', 'selector': 'app-menu'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AnEditionComponent'};

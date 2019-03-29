@@ -27,7 +27,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content pipe">
+               <div class="content interceptor">
                    <div class="content-data">
 
 
@@ -37,11 +37,9 @@
 
 
 
-
-
 <ol class="breadcrumb">
-  <li>Pipes</li>
-  <li>NewsPipe</li>
+  <li>Interceptors</li>
+  <li>SecuriteIntercepteur</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -55,34 +53,43 @@
 
 <div class="tab-content">
     <div class="tab-pane fade active in" id="c-info">
-
         <p class="comment">
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/an-edition/news.pipe.ts</code>
+            <code>src/app/services/securite.intercepteur.ts</code>
         </p>
 
-            <p class="comment">
-                <h3>Description</h3>
-            </p>
-            <p class="comment">
-                <p>Traitement de listes d&#39;articles basé sur le modèle des news</p>
-
-            </p>
 
 
-        <section>
-            <h3>Metadata</h3>
-            <table class="table table-sm table-hover">
-                <tbody>
-                    <tr>
-                        <td class="col-md-3">Name</td>
-                        <td class="col-md-9">newsPipe</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#intercept">intercept</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
 
             <section>
     
@@ -93,36 +100,32 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="transform"></a>
+                    <a name="intercept"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Public</span>
-                            transform
+                            intercept
                         </b>
-                        <a href="#transform"><span class="icon ion-ios-link"></span></a>
+                        <a href="#intercept"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>transform(values: any[], filtre: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>intercept(req: HttpRequest<any>, next: <a href="https://angular.io/api/common/http/HttpHandler" target="_blank">HttpHandler</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">src/app/an-edition/news.pipe.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="9"
+                            class="link-to-prism">src/app/services/securite.intercepteur.ts:9</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Appliquer un filtre aux titres, intro et descriptions des news</p>
-</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -132,14 +135,13 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
-                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>values</td>
+                                    <td>req</td>
                                     <td>
-                                            <code>any[]</code>
+                                            <code>HttpRequest&lt;any&gt;</code>
                                     </td>
 
                                     <td>
@@ -147,15 +149,11 @@
                                     </td>
 
 
-                                    <td>
-                                        <p>Le tableau de données à fitrer (la liste des news)</p>
-
-                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>filtre</td>
+                                    <td>next</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="https://angular.io/api/common/http/HttpHandler" target="_blank" >HttpHandler</a></code>
                                     </td>
 
                                     <td>
@@ -163,10 +161,6 @@
                                     </td>
 
 
-                                    <td>
-                                        <p>Le filtre à appliquer (ici une chaîne de caractère saisi dans le formulaire de filtre)</p>
-
-                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -174,7 +168,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>any[]</code>
+                        <b>Returns : </b>    <code>Observable&lt;HttpEvent&lt;any&gt;&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -190,55 +184,30 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Pipe, PipeTransform } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpErrorResponse } from &#x27;@angular/common/http&#x27;;
+import { Observable, pipe } from &#x27;rxjs&#x27;;
+import {catchError} from &quot;rxjs/internal/operators&quot;;
 
-/**
- * Traitement de listes d&#x27;articles basé sur le modèle des news
- */
-@Pipe({ name: &#x27;newsPipe&#x27; })
-export class NewsPipe implements PipeTransform {
-  /**
-   * Appliquer un filtre aux titres, intro et descriptions des news
-   * @param values Le tableau de données à fitrer (la liste des news)
-   * @param filtre Le filtre à appliquer (ici une chaîne de caractère saisi dans le formulaire de filtre)
-   */
-  public transform(values: any[], filtre: string): any[] {
-    if (!values || !values.length) return [];
-    if (!filtre) return values;
+@Injectable()
+export class SecuriteIntercepteur implements HttpInterceptor {
 
-    // Filtrer le tableau fourni en gérant la casse
-    return values.filter(v &#x3D;&gt; {
-      // Filtre sur le titre
-      if(v.titre){
-        return v.titre.toLowerCase().indexOf(filtre.toLowerCase()) &gt;&#x3D;0 ;
-      }
-      // Filtre sur la description
-      if(v.description){
-        return v.description.toLowerCase().indexOf(filtre.toLowerCase()) &gt;&#x3D;0 ;
-      }
-      // Filtre sur l&#x27;intro d&#x27;une news
-      if(v.intro){
-        return v.intro.toLowerCase().indexOf(filtre.toLowerCase()) &gt;&#x3D;0 ;
-      }
-    });
-  }
-}
-
-/**
- * Filtre pour des tableaux classiques
- */
-@Pipe({ name: &#x27;filtreListes&#x27; })
-export class FiltrerPipe implements PipeTransform {
-  public transform(values: any[], filter: string): any[] {
-    if (!values || !values.length) return [];
-    if (!filter) return values;
-    
-    return values.filter(v &#x3D;&gt; v.toLowerCase().indexOf(filter.toLowerCase()) &gt;&#x3D; 0);
-  }
+  intercept(req: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
+    return next.handle(req)
+    .pipe(
+        catchError((error) &#x3D;&gt; {
+          if (error instanceof HttpErrorResponse &amp;&amp; error.status &#x3D;&#x3D; 401) {
+            console.log(&quot;Une erreur s&#x27;est produite&quot;);
+            console.log(error); // Récupérer les erreurs et les affichers
+            return Observable.throw(error); // Renvoyer l&#x27;erreur
+          }
+      })) as any;
+    }
 }</code></pre>
     </div>
-
 </div>
+
+
 
 
 
@@ -263,8 +232,8 @@ export class FiltrerPipe implements PipeTransform {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'pipe';
-            var COMPODOC_CURRENT_PAGE_URL = 'NewsPipe.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interceptor';
+            var COMPODOC_CURRENT_PAGE_URL = 'SecuriteIntercepteur.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

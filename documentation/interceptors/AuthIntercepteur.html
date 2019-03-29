@@ -27,7 +27,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content interceptor">
                    <div class="content-data">
 
 
@@ -36,9 +36,10 @@
 
 
 
+
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li>ConnexionService</li>
+  <li>Interceptors</li>
+  <li>AuthIntercepteur</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,9 +57,8 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/services/connexion.service.ts</code>
+            <code>src/app/services/auth.intercepteur.ts</code>
         </p>
-
 
 
 
@@ -66,20 +66,6 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#connecte">connecte</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -90,10 +76,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#recupereConnexion">recupereConnexion</a>
-                            </li>
-                            <li>
-                                <a href="#stockConnexion">stockConnexion</a>
+                                <a href="#intercept">intercept</a>
                             </li>
                         </ul>
                     </td>
@@ -118,14 +101,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/services/connexion.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/services/auth.intercepteur.ts:7</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Gérer l&#39;état d&#39;identification d&#39;un tiers
-Nous utilisons une classe spécifique pour éviter les conflits et boucles liés à l&#39;utilisation de la classe HttpClient</p>
+                            <div class="io-description"><p>Interepteur qui ajouter un token d&#39;identification à chaque requête HTTP sortante
+L&#39;intercepteur clone un requête, transforme la requête clonée et l&#39;envoie</p>
 </div>
                     </td>
                 </tr>
@@ -142,75 +125,32 @@ Nous utilisons une classe spécifique pour éviter les conflits et boucles liés
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="recupereConnexion"></a>
+                    <a name="intercept"></a>
                     <span class="name">
                         <b>
-                            recupereConnexion
+                            intercept
                         </b>
-                        <a href="#recupereConnexion"><span class="icon ion-ios-link"></span></a>
+                        <a href="#intercept"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>recupereConnexion()</code>
+<code>intercept(req: HttpRequest<any>, next: <a href="https://angular.io/api/common/http/HttpHandler" target="_blank">HttpHandler</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/app/services/connexion.service.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">src/app/services/auth.intercepteur.ts:13</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Récupérer la connexion si elle a été stockée</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="stockConnexion"></a>
-                    <span class="name">
-                        <b>
-                            stockConnexion
-                        </b>
-                        <a href="#stockConnexion"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>stockConnexion(tag: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">src/app/services/connexion.service.ts:32</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Stock l&#39;enregistrement dans le local storage</p>
-</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -220,14 +160,13 @@ Nous utilisons une classe spécifique pour éviter les conflits et boucles liés
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
-                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>tag</td>
+                                    <td>req</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            <code>HttpRequest&lt;any&gt;</code>
                                     </td>
 
                                     <td>
@@ -235,10 +174,18 @@ Nous utilisons une classe spécifique pour éviter les conflits et boucles liés
                                     </td>
 
 
+                                </tr>
+                                <tr>
+                                    <td>next</td>
                                     <td>
-                                        <p>Un booléen pour dire s&#39;il s&#39;agit d&#39;une connexion ou une déconnexion</p>
-
+                                                <code><a href="https://angular.io/api/common/http/HttpHandler" target="_blank" >HttpHandler</a></code>
                                     </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
                                 </tr>
                             </tbody>
                         </table>
@@ -246,7 +193,7 @@ Nous utilisons une classe spécifique pour éviter les conflits et boucles liés
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>    <code>Observable&lt;HttpEvent&lt;any&gt;&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -257,96 +204,41 @@ Nous utilisons une classe spécifique pour éviter les conflits et boucles liés
         </tbody>
     </table>
 </section>
-            <section>
-    
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="connecte"></a>
-                        <span class="name">
-                            <b>
-                            connecte</b>
-                            <a href="#connecte"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>false</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/services/connexion.service.ts:10</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Un internaute est connecté</p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-</section>
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from &#x27;@angular/common/http&#x27;;
+import { Observable, pipe } from &#x27;rxjs&#x27;;
+import {catchError} from &quot;rxjs/internal/operators&quot;;
 
-@Injectable({
-  providedIn: &#x27;root&#x27;
-})
-export class ConnexionService {
+@Injectable()
+export class AuthIntercepteur implements HttpInterceptor{
   /**
-   * Un internaute est connecté
+   * Interepteur qui ajouter un token d&#x27;identification à chaque requête HTTP sortante
+   * L&#x27;intercepteur clone un requête, transforme la requête clonée et l&#x27;envoie
    */
-  connecte : boolean &#x3D; false;
-  /**
-   * Gérer l&#x27;état d&#x27;identification d&#x27;un tiers
-   * Nous utilisons une classe spécifique pour éviter les conflits et boucles liés à l&#x27;utilisation de la classe HttpClient
-   */
-  constructor() {
-    this.connecte &#x3D; this.recupereConnexion();
-  }
-
-  /**
-   * Récupérer la connexion si elle a été stockée
-   */
-  recupereConnexion():boolean{
-    if(sessionStorage.getItem(&#x27;connexion&#x27;)){
-      return JSON.parse(sessionStorage.getItem(&#x27;connexion&#x27;));
-    }
-      return this.connecte;
-  }
-  /**
-   * Stock l&#x27;enregistrement dans le local storage
-   * @param tag Un booléen pour dire s&#x27;il s&#x27;agit d&#x27;une connexion ou une déconnexion
-   */
-  stockConnexion(tag: boolean) {
-    this.connecte &#x3D; tag;
-    sessionStorage.setItem(&#x27;connexion&#x27;, JSON.stringify(tag));
+  constructor() { }
+  intercept(req: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
+    console.log(&quot;Interception d&#x27;une requête ... &quot;);
+    // Cloner la requête
+    const authReq &#x3D; req.clone({ headers: req.headers.set(&quot;Authorization&quot;, &quot;AUTH_TOKEN&quot;)});
+    console.log(&quot;La requête va être envoyée avec un nouveau header intégrant une autorisation...&quot;);
+    // Envoyer la nouvelle requête
+    return next.handle(authReq)
+    .pipe(
+      catchError((error) &#x3D;&gt; {
+        console.log(&quot;Une erreur s&#x27;est produite&quot;);
+        console.log(error); // Récupérer les erreurs et les affichers
+        return Observable.throw(error); // Renvoyer l&#x27;erreur
+    })) as any;
   }
 }
 </code></pre>
     </div>
-
 </div>
-
 
 
 
@@ -373,8 +265,8 @@ export class ConnexionService {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'ConnexionService.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interceptor';
+            var COMPODOC_CURRENT_PAGE_URL = 'AuthIntercepteur.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

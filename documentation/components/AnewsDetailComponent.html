@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>angular-news6 documentation</title>
+        <title>NGNews</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">angular-news6 documentation</a>
+            <a href="../" class="navbar-brand">NGNews</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -317,15 +317,15 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">src/app/anews-detail/anews-detail.component.ts:61</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/app/anews-detail/anews-detail.component.ts:54</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Supprimer la souscription aux observables pour libérer la mémoire</p>
+                    <div class="io-description"><p>Supprimer la souscription aux observables s&#39;il y en a pour libérer la mémoire</p>
 </div>
 
                     <div class="io-description">
@@ -358,15 +358,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/app/anews-detail/anews-detail.component.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/anews-detail/anews-detail.component.ts:40</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>On initialise les données de la news à afficher à partir de l&#39;index transmis</p>
+                    <div class="io-description"><p>On initialise les données de la news à afficher à partir de l&#39;index transmis
+La news est récupérée directement depuis le service</p>
 </div>
 
                     <div class="io-description">
@@ -639,31 +640,23 @@ export class AnewsDetailComponent implements OnInit, OnDestroy {
   
   /**
    * On initialise les données de la news à afficher à partir de l&#x27;index transmis
+   * La news est récupérée directement depuis le service
    */
   ngOnInit() {
-    this.newsId &#x3D; 0; // Valeur par défaut de newsId corrigée sir
+    this.newsId &#x3D; 0; // Valeur par défaut de newsId
 
     this.routeParams.params.subscribe(params &#x3D;&gt; {
       // Paramétrage de l&#x27;actualité si le tableau est déjà chargé
       this.newsId &#x3D; +params[&#x27;id&#x27;]; // (+) converts string &#x27;id&#x27; to a number
-      this.newsActu &#x3D; this.donnees.news$.getValue()[this.newsId];
-      // console.log(&quot;News actu&quot;, this.newsActu, this.donnees.news$.getValue(), this.donnees.news);
-      this.donnees$ &#x3D; this.donnees.news$.subscribe(
-        data &#x3D;&gt; {
-          // this.news &#x3D; data;
-          if(this.newsId){
-            this.news &#x3D; data;
-            this.newsActu &#x3D; data[this.newsId];
-          }
-      });
+      console.log(this.newsId);
+      this.newsActu &#x3D; this.donnees.getNews(this.newsId);
    });
    
   }
   /**
-   * Supprimer la souscription aux observables pour libérer la mémoire
+   * Supprimer la souscription aux observables s&#x27;il y en a pour libérer la mémoire
    */
   ngOnDestroy(){
-    this.donnees$.unsubscribe();
   }
 
 }
@@ -678,16 +671,17 @@ export class AnewsDetailComponent implements OnInit, OnDestroy {
 
         &lt;img [src]&#x3D;&quot;newsActu.img&quot; /&gt;
         &lt;!-- Sanitisation pour permettre l&#x27;affichage de balises HTML --&gt;
+        &lt;p [innerHtml]&#x3D;&quot;sanitizer.bypassSecurityTrustHtml( newsActu.intro )&quot;&gt;&lt;/p&gt;
         &lt;p [innerHtml]&#x3D;&quot;sanitizer.bypassSecurityTrustHtml( newsActu.description )&quot;&gt;&lt;/p&gt;
-        &lt;a href [routerLink]&#x3D;&quot;[&#x27;/edition&#x27;, newsId]&quot; *ngIf&#x3D;&quot;connexion.connecte&quot;&gt;&lt;img src&#x3D;&quot;../assets/images/Settings.png&quot; class&#x3D;&quot;edition&quot; /&gt;&lt;/a&gt;
+        &lt;a href [routerLink]&#x3D;&quot;[&#x27;/edition&#x27;, newsId]&quot; *ngIf&#x3D;&quot;connexion.connecte&quot;&gt;&lt;img src&#x3D;&quot;./assets/images/Settings.png&quot; class&#x3D;&quot;edition&quot; /&gt;&lt;/a&gt;
     &lt;/article&gt;
 
 &lt;/section&gt;
 &lt;!-- Afficher l&#x27;auteur d&#x27;une nouvelle --&gt;
-&lt;section class&#x3D;&quot;unique&quot;&gt;
+&lt;section class&#x3D;&quot;unique&quot; *ngIf&#x3D;&quot;newsActu.auteur&quot;&gt;
     &lt;article&gt;
         &lt;blockquote&gt;
-            &lt;app-anews-auteur [auteur]&#x3D;&quot;newsActu[&#x27;auteur&#x27;]&quot;&gt;&lt;/app-anews-auteur&gt;
+            &lt;app-anews-auteur [auteur]&#x3D;&quot;newsActu.auteur&quot;&gt;&lt;/app-anews-auteur&gt;
         &lt;/blockquote&gt;
     &lt;/article&gt;
 &lt;/section&gt;</code></pre>
@@ -725,7 +719,7 @@ export class AnewsDetailComponent implements OnInit, OnDestroy {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section class="unique">    <!-- <a href routerLink="auteur">AUTEUR</a> -->    <article>        <h2>{{newsActu.titre}}</h2>        <img [src]="newsActu.img" />        <!-- Sanitisation pour permettre l\'affichage de balises HTML -->        <p [innerHtml]="sanitizer.bypassSecurityTrustHtml( newsActu.description )"></p>        <a href [routerLink]="[\'/edition\', newsId]" *ngIf="connexion.connecte"><img src="../assets/images/Settings.png" class="edition" /></a>    </article></section><!-- Afficher l\'auteur d\'une nouvelle --><section class="unique">    <article>        <blockquote>            <app-anews-auteur [auteur]="newsActu[\'auteur\']"></app-anews-auteur>        </blockquote>    </article></section></div>'
+        var COMPONENT_TEMPLATE = '<div><section class="unique">    <!-- <a href routerLink="auteur">AUTEUR</a> -->    <article>        <h2>{{newsActu.titre}}</h2>        <img [src]="newsActu.img" />        <!-- Sanitisation pour permettre l\'affichage de balises HTML -->        <p [innerHtml]="sanitizer.bypassSecurityTrustHtml( newsActu.intro )"></p>        <p [innerHtml]="sanitizer.bypassSecurityTrustHtml( newsActu.description )"></p>        <a href [routerLink]="[\'/edition\', newsId]" *ngIf="connexion.connecte"><img src="./assets/images/Settings.png" class="edition" /></a>    </article></section><!-- Afficher l\'auteur d\'une nouvelle --><section class="unique" *ngIf="newsActu.auteur">    <article>        <blockquote>            <app-anews-auteur [auteur]="newsActu.auteur"></app-anews-auteur>        </blockquote>    </article></section></div>'
     var COMPONENTS = [{'name': 'AnAuteursComponent', 'selector': 'app-an-auteurs'},{'name': 'AnConnexionComponent', 'selector': 'app-an-connexion'},{'name': 'AnEditionComponent', 'selector': 'app-an-edition'},{'name': 'AnewsAuteurComponent', 'selector': 'app-anews-auteur'},{'name': 'AnewsComponent', 'selector': 'app-anews'},{'name': 'AnewsDetailComponent', 'selector': 'app-anews-detail'},{'name': 'AnewsRelativeComponent', 'selector': 'app-anews-relative'},{'name': 'AnewsreserveesComponent', 'selector': 'app-anewsreservees'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'Erreur404Component', 'selector': 'app-erreur404'},{'name': 'MenuComponent', 'selector': 'app-menu'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AnewsDetailComponent'};

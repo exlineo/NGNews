@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>angular-news6 documentation</title>
+        <title>NGNews</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">angular-news6 documentation</a>
+            <a href="../" class="navbar-brand">NGNews</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -177,7 +177,8 @@
             <h3>Description</h3>
         </p>
         <p class="comment">
-            <p>Module tiers chargé lorsque la route edition est appelée et que l&#39;authentification est valide</p>
+            <p>Module tiers chargé lorsque la route edition est appelée et que l&#39;authentification est valide
+L&#39;intégration de tinymce nécessite de paramétrer les URL pour la mise en production</p>
 
         </p>
 
@@ -229,13 +230,17 @@ import { AnAuteursComponent } from &#x27;./an-auteurs/an-auteurs.component&#x27;
 import { EditionRoutingModule } from &#x27;./edition-routing.module&#x27;;
 /**
  * Module tiers chargé lorsque la route edition est appelée et que l&#x27;authentification est valide
+ * L&#x27;intégration de tinymce nécessite de paramétrer les URL pour la mise en production
  */
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     EditionRoutingModule,
-    TinymceModule.withConfig({})
+    TinymceModule.withConfig({
+      baseURL:&#x27;./&#x27;,
+      skin_url: &#x27;./assets/tinymce/skins/lightgray&#x27;
+    })
   ],
   declarations: [
     AnEditionComponent,
