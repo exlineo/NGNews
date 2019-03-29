@@ -66,15 +66,6 @@ export class AnEditionComponent implements OnInit, OnDestroy, AfterViewInit{
   }
   
   ngAfterViewInit() {
-    // tinymce.init({skin_url: './assets/skins/lightgray',
-    //   setup: editor => {
-    //     editor = editor;
-    //     editor.on('keyup', () => {
-    //       const content = editor.getContent();
-    //       this.onEditorKeyup.emit(content);
-    //     });
-    //   },
-    // });
   }
 
   /**
