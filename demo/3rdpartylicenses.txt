@@ -819,11 +819,11 @@ END OF TERMS AND CONDITIONS
 MIT
 MIT
 
-@angular/platform-browser@7.0.2
+@angular/router@7.0.2
 MIT
 MIT
 
-@angular/router@7.0.2
+@angular/platform-browser@7.0.2
 MIT
 MIT
 

@@ -23,13 +23,6 @@ export class AnEditionComponent implements OnInit, OnDestroy, AfterViewInit{
   newsActu:NouvellesModel;
   filtre:string; // Filtrage des données de la liste des articles
   donnees$:Subscription; // Récupération des données des Nouvelles
-  
-  // Ajout d'un éditeur
-  public editeur;
-  public editeurContent = `<h3>I am Example content</h3>`;
-  public editeurOptions = {
-    placeholder: "insert content..."
-  };
 
   /**
    * 
@@ -73,6 +66,10 @@ export class AnEditionComponent implements OnInit, OnDestroy, AfterViewInit{
    * @param f Données saisies dans le formulaire
    */
   edition(f:NgForm){
+    this.donnees.miseAJourDonnees()
+    .subscribe(
+      () => alert("Données enregistrées")
+    );;
     console.log(f.value);
   }
   /**

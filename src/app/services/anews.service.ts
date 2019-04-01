@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Location } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
-import { BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { NouvellesModel } from '../modeles/nouvelles.modele';
 import { forEach } from '@angular/router/src/utils/collection';
@@ -28,21 +29,32 @@ export class AnewsService{
   }
   /**
    * Appel des données en Ajax et sauvegarde dans un objet news et un observable news$ pour l'exemple
+   * L'adresse de chargement des données est traitée avec la classe Location prepareExternalUrl pour tenir compte du basehref lors de la publication
    */
   chargeDonnees() {
-    this.http.get<NouvellesModel[]>(this.location.prepareExternalUrl('/assets/datas/nouvelles.json'))
+    this.http.get<Array<NouvellesModel>>(this.location.prepareExternalUrl('/assets/datas/nouvelles.json'))
     .subscribe(data => {
       this.news = data;
       this.news$.next(data);
+    },
+    erreur => {
+      console.log('Aie, il y a une erreur dans le chargement des données');
     });
   }
-
+  /**
+   * Mise à jour des données vers le script PHP (fonctionnel uniquement sur un serveur PHP)
+   */
+  miseAJourDonnees():Observable<any>{
+    return this.http.post(this.location.prepareExternalUrl('/assets/php/setJson.php'), this.news)
+    .pipe(
+      catchError( erreur => this.handleError(erreur) )
+    );
+  }
   /**
    * Méthode d'identification d'une news spécifique à afficher. Prend en compte la valeur de ID
    * @param id index ou _id d'une noucelle à récupérer
    */
   getNews(id: number | string):NouvellesModel {
-    // let tmp = this.news$.getValue();
     // Tester si l'id de la news est de type ObjectId de MongoDB
     for(let i in this.news){
       console.log(i);
@@ -52,5 +64,22 @@ export class AnewsService{
       }
     }
   }
-
+  /**
+   * Gestion des erreurs des requêtes HTTP
+   */
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error("Une erreur s'est produite : ", error.error.message);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong,
+      console.error(
+        `PHP renvoie une erreur ${error.status}, ` +
+        `plus d'infos sur le body : ${error.error}`);
+    }
+    // return an observable with a user-facing error message
+    return throwError(
+      "Une erreur s'est produite lors de l'écriture des données, merci de rééssayer");
+  };
 }
