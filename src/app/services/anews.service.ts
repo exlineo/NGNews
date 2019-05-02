@@ -8,6 +8,8 @@ import { catchError } from 'rxjs/operators';
 import { NouvellesModel } from '../modeles/nouvelles.modele';
 import { forEach } from '@angular/router/src/utils/collection';
 
+import { environment } from '../../environments/environment';
+
 @Injectable()
 export class AnewsService{
   /**
@@ -32,7 +34,9 @@ export class AnewsService{
    * L'adresse de chargement des données est traitée avec la classe Location prepareExternalUrl pour tenir compte du basehref lors de la publication
    */
   chargeDonnees() {
-    this.http.get<Array<NouvellesModel>>(this.location.prepareExternalUrl('/assets/datas/nouvelles.json'))
+    console.log("Appel des données à charger");
+    // this.http.get<Array<NouvellesModel>>(this.location.prepareExternalUrl('/assets/datas/nouvelles.json'))
+    this.http.get<Array<NouvellesModel>>(environment.REST_ADR+environment.NG_NEWS)
     .subscribe(data => {
       this.news = data;
       this.news$.next(data);
@@ -58,7 +62,7 @@ export class AnewsService{
     // Tester si l'id de la news est de type ObjectId de MongoDB
     for(let i in this.news){
       console.log(i);
-      if(this.news[i]['_id'] == id){
+      if(this.news[i]['id'] == id){
         console.log("Objet retourné", i);
         return this.news[i];
       }

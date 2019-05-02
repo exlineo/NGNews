@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, isDevMode } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser'; // Nettoyer du html dans une chaîne
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -31,10 +31,8 @@ export class AnewsComponent implements OnInit{
    */
   ngOnInit() {
     this.news = this.donnees.news$.getValue(); // Si le tableau est déjà chargé
-    console.log("Données initiées", this.news);
     this.donnees.news$.subscribe(
       data => {
-        console.log("Données prêtes", data);
         this.news = data;
     });
   }

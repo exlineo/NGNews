@@ -1,11 +1,11 @@
 import { AuteursModel } from "./auteurs.modele";
 
 export interface NouvellesModel {
-    _id?:string;
+    id?:string;
     titre:string;
     intro:string;
     description:string;
     img?:string;
     droits:number;
-    auteur?:AuteursModel;
+    ngauteur?:AuteursModel;
 }

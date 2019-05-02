@@ -1,5 +1,5 @@
 <section>
-    <article *ngFor="let n of news" (click)=goNews(n._id)>
+    <article *ngFor="let n of news" (click)=goNews(n.id)>
         <div class="img" [style.backgroundImage]="'url('+n.img+')'"></div>
         <h3>{{n.titre}}</h3>
         <!-- Gestion des balises HTML injectées -->

@@ -12,10 +12,10 @@
 
 </section>
 <!-- Afficher l'auteur d'une nouvelle -->
-<section class="unique" *ngIf="newsActu.auteur">
+<section class="unique" *ngIf="newsActu.ngauteur">
     <article>
         <blockquote>
-            <app-anews-auteur [auteur]="newsActu.auteur"></app-anews-auteur>
+            <app-anews-auteur [auteur]="newsActu.ngauteur"></app-anews-auteur>
         </blockquote>
     </article>
 </section>

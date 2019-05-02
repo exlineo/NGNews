@@ -757,6 +757,10 @@ Apache License
  See the License for the specific language governing permissions and
  limitations under the License.
 
+@angular/platform-browser@7.0.2
+MIT
+MIT
+
 tslib@1.9.1
 Apache-2.0
 Apache License
@@ -820,10 +824,6 @@ MIT
 MIT
 
 @angular/router@7.0.2
-MIT
-MIT
-
-@angular/platform-browser@7.0.2
 MIT
 MIT
 

@@ -8,7 +8,7 @@ export class ConnexionService {
    * Un internaute est connecté
    */
   connecte : boolean = false;
-  token : string = 'PasDeTokenDéfini';
+  token : string;
   /**
    * Gérer l'état d'identification d'un tiers
    * Nous utilisons une classe spécifique pour éviter les conflits et boucles liés à l'utilisation de la classe HttpClient
