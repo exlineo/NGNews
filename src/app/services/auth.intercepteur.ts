@@ -12,7 +12,7 @@ export class AuthIntercepteur implements HttpInterceptor {
    * Interepteur qui ajouter un token d'identification à chaque requête HTTP sortante
    * L'intercepteur clone un requête, transforme la requête clonée et l'envoie
    */
-  constructor(public securite: ConnexionService) {}
+  constructor(public securite: ConnexionService) { }
   /**
    * Récupérer les requêtes, les cloner et ajouter l'authentification si elle existe
    * @param req La requête interceptée
@@ -35,18 +35,18 @@ export class AuthIntercepteur implements HttpInterceptor {
           'Content-Type': 'application/json'
         })
       }
-
-      const authReq = req.clone(this.entetes);
-
-      console.log("La requête va être envoyée avec un nouveau header intégrant une autorisation...");
-      // Envoyer la nouvelle requête
-      return next.handle(authReq)
-        .pipe(
-          catchError((erreur) => {
-            console.log("Une erreur s'est produite");
-            console.log(erreur); // Récupérer les erreurs et les affichers
-            return Observable.throw(erreur); // Renvoyer l'erreur
-          })) as any;
     }
+    const authReq = req.clone(this.entetes);
+
+    console.log("La requête va être envoyée avec un nouveau header intégrant une autorisation...");
+    // Envoyer la nouvelle requête
+    return next.handle(authReq)
+      .pipe(
+        catchError((erreur) => {
+          console.log("Une erreur s'est produite");
+          console.log(erreur); // Récupérer les erreurs et les affichers
+          return Observable.throw(erreur); // Renvoyer l'erreur
+        })) as any;
+
   }
 }
