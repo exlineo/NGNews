@@ -22,4 +22,21 @@ export class AuthService {
     const body = { login, mdp };
     return this.http.post('assets/datas/id.json', body);
   }
+  /**
+   * Authentifier un utilisateur
+   * @param o Paramètres d'authentification envoyés à Strapi
+   */
+  enregistreStrapi(o:object){
+    this.http.post('http://localhost:1337/auth/local', o).subscribe(
+      data => {
+        console.log(data);
+        // Gestion des paramètres d'authentification depuis strapi
+        if(data['jwt']){
+          this.connexion.connecte = true;
+          this.connexion.token = data['jwt'];
+        }
+      }
+      )
+    
+  }
 }

@@ -35,4 +35,14 @@ export class AnConnexionComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  /**
+   * Utiliser Strapi comme back-end
+   */
+  authentification(){
+    this.authService.enregistreStrapi({
+        identifier: this.donneesID.login,
+        password: this.donneesID.mdp
+    });
+  }
 }

@@ -8,7 +8,7 @@
         <div class="alert alert-danger" *ngIf="connexion.connecte">
             <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&#215;</span></button> Vous êtes connecté
         </div>
-        <form (ngSubmit)="connexion.stockConnexion(true)" #f="ngForm" *ngIf="!connexion.connecte">
+        <form (submit)="authentification()" #f="ngForm" *ngIf="!connexion.connecte">
 
             <div class="form-group">
                 <label for="login">Identifiant</label>
