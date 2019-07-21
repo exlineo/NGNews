@@ -6,7 +6,6 @@ import { Observable, BehaviorSubject, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { NouvellesModel } from '../modeles/nouvelles.modele';
-import { forEach } from '@angular/router/src/utils/collection';
 
 import { environment } from '../../environments/environment';
 

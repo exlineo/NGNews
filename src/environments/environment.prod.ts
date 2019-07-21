@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  REST_ADR: 'http://vps550598.ovh.net:1337/',
-  NG_NEWS:'ngnews',
-  NG_AUTEUR:'ngauteurs'
+  REST_ADR: 'http://localhost:1337/',
+  NG_NEWS:'nouvelles',
+  NG_AUTEUR:'auteurs'
 };

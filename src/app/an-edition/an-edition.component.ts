@@ -60,7 +60,7 @@ export class AnEditionComponent implements OnInit, OnDestroy, AfterViewInit{
   
   ngAfterViewInit() {
   }
-
+  
   /**
    * Fonction appelée lors de la soumission du formulaire
    * @param f Données saisies dans le formulaire
