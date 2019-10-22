@@ -18,9 +18,9 @@ export class AuthService {
    * @param login Login à transmettre au serveur distant
    * @param mdp Mot de passe à transmettre au serveur distant
    */
-  enregistre(login, mdp): Observable<any> {
-    const body = { login, mdp };
-    return this.http.post('assets/datas/id.json', body);
+  enregistre(o:object){
+    this.connexion.connecte = true;
+    this.connexion.token = 'pipeautoken';
   }
   /**
    * Authentifier un utilisateur

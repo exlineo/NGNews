@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms/src/directives/ng_form';
 
 import { AuthService } from '../services/auth.service';
 import { ConnexionService } from '../services/connexion.service';
+
+import { isDevMode } from '@angular/core';
 /**
  * Composant de connexion
  */
@@ -23,14 +25,14 @@ export class AnConnexionComponent implements OnInit {
   /**
    * Non implémenté, permettra de gérer les erreurs
    */
-  authErreur:boolean;
+  authErreur: boolean;
   /**
    * Page de connexion
    * @param router On récupère la route
    * @param authService Service qui s'occupe de vérifier la validité de l'authentification
    * @param connexion Stockage du statut de l'authentification avec gestion du sessionStorage
    */
-  constructor(private router: Router, public authService:AuthService, public connexion:ConnexionService) {
+  constructor(private router: Router, public authService: AuthService, public connexion: ConnexionService) {
   }
 
   ngOnInit() {
@@ -39,10 +41,18 @@ export class AnConnexionComponent implements OnInit {
   /**
    * Utiliser Strapi comme back-end
    */
-  authentification(){
-    this.authService.enregistreStrapi({
-        identifier: this.donneesID.login,
-        password: this.donneesID.mdp
-    });
+  authentification() {
+    // Test si nous sommes en développement ou non
+    if (isDevMode()) {
+      this.authService.enregistre(this.donneesID);
+    } else {
+      // Simulation cf.
+      this.authService.enregistre(this.donneesID);
+      // Enregistrement sur un serveur Strapi
+      // this.authService.enregistreStrapi({
+      //   identifier: this.donneesID.login,
+      //   password: this.donneesID.mdp
+      // });
+    }
   }
 }
