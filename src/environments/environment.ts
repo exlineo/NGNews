@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  REST_ADR: '/NGNews/demo/assets/datas/',
+  REST_ADR: '/assets/datas/',
   NG_NEWS:'nouvelles.json',
   NG_AUTEUR:'auteurs.json'
 };
