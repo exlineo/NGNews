@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -21,6 +22,7 @@ import { AnewsService } from './services/anews.service';
 import { AuthService } from './services/auth.service';
 import { AuthIntercepteur } from './services/auth.intercepteur';
 import { SecuriteIntercepteur } from './services/securite.intercepteur';
+import { AProposComponent } from './a-propos/a-propos.component';
 
 @NgModule({
   declarations: [
@@ -32,10 +34,12 @@ import { SecuriteIntercepteur } from './services/securite.intercepteur';
     MenuComponent,
     AnewsAuteurComponent,
     AnewsRelativeComponent,
-    AnewsreserveesComponent
+    AnewsreserveesComponent,
+    AProposComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     NoopAnimationsModule,

@@ -5,3 +5,13 @@ h1 {
     right: 20px;
     top: 0px;
 }
+main{
+    display:flex;
+    flex-direction: column;
+    margin:0;
+    padding:0;
+}
+footer{
+    display: flex;
+    justify-content: space-around;
+}
