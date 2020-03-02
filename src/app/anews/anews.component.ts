@@ -1,7 +1,6 @@
 import { Component, OnInit, isDevMode } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser'; // Nettoyer du html dans une chaîne
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 
 import { NouvellesModel } from '../modeles/nouvelles.modele';
 import { AnewsService } from '../services/anews.service';

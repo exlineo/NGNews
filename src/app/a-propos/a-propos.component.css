@@ -1,0 +1,19 @@
+section {
+    width: 100vw;
+    /* display: flex;
+    flex-flow: row nowrap; */
+}
+
+article {
+    display: block;
+    width: 50vw;
+    color: white;
+}
+
+article:nth-child(1) {
+    background-color: grey;
+}
+
+article:nth-child(2) {
+    background-color: black;
+}

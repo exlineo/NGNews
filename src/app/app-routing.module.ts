@@ -10,6 +10,7 @@ import { AnConnexionComponent } from './an-connexion/an-connexion.component';
 import { Erreur404Component } from './erreur404/erreur404.component';
 import { AnewsAuteurComponent } from './anews-detail/anews-auteur/anews-auteur.component';
 import { AnewsRelativeComponent } from './anews-detail/anews-relative/anews-relative.component';
+import { AProposComponent } from './a-propos/a-propos.component';
 
 /**
  * Liste des routes utilisées dans l'application
@@ -23,8 +24,9 @@ const routes: Routes = [
     { path: 'auteur', component: AnewsAuteurComponent },
     { path: 'relatif', component: AnewsRelativeComponent }
   ] },
-  { path: 'edition', loadChildren: './an-edition/edition.module#EditionModule', canLoad: [BlocEditionGuard] },
+  { path: 'edition', loadChildren: () => import('./an-edition/edition.module').then(m => m.EditionModule), canActivate: [BlocEditionGuard], canLoad: [BlocEditionGuard] },
   { path: 'connexion', component: AnConnexionComponent },
+  { path: 'apropos', component: AProposComponent },
   // { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '**', component: Erreur404Component }];
 

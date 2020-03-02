@@ -1,0 +1,49 @@
+// import the required animation functions from the angular animations module
+import { trigger, state, animate, transition, style } from '@angular/animations';
+
+export const glisseDAnimation =
+    // trigger name for attaching this animation to an element using the [@triggerName] syntax
+    trigger('glisseD', [
+
+        transition(':enter', [
+            style({ opacity: 0 }),
+            animate('5s', style({ opacity: 1 })),
+          ]),
+          transition(':leave', [
+            animate('5s', style({ opacity: 0 }))
+          ])
+        // end state styles for route container (host)
+        // state('*', style({
+        //     position: 'block',
+        //     opacity:0
+        // })),
+
+        // // route 'enter' transition
+        // transition(':enter', [
+
+        //     // styles at start of transition
+        //     style({
+        //         // start with the content positioned off the right of the screen, 
+        //         // -400% is required instead of -100% because the negative position adds to the width of the element
+        //         marginTop:'100vh',
+        //         opacity:0
+        //     }),
+
+        //     // animation and styles at end of transition
+        //     animate('.3s ease-in-out', style({
+        //         // transition the right position to 0 which slides the content into view
+        //         marginTop:'0',
+        //         opacity:1
+        //     }))
+        // ]),
+
+        // // route 'leave' transition
+        // transition(':leave', [
+        //     // animation and styles at end of transition
+        //     animate('.3s ease-in-out', style({
+        //         // transition the right position to -400% which slides the content out of view
+        //         marginTop:'-100vh',
+        //         opacity:0
+        //     }))
+        // ])
+    ]);

@@ -1,7 +1,9 @@
 <section class="unique">
     <article>
         <h1>Editer une news</h1>
-        <input name="filtre" [(ngModel)]="filtre" placeholder="Filtrer les news">
+        <section>
+            <input name="filtre" [(ngModel)]="filtre" placeholder="Filtrer les news">
+        </section>
         <select id="newsSelect" class="form-control" name="newsSelect" (change)="setNewsActu($event)">
             <option *ngFor="let n of (donnees.news | newsPipe:filtre); index as i" [value]="i | number">{{n.titre}}</option>
         </select>
@@ -9,7 +11,7 @@
             <div>
                 <label for="titre" id="titre-label">Titre*</label>
                 <input id="titre" class="form-control" required name="titre" [(ngModel)]="newsActu.titre" #titreCtrl="ngModel">
-                <div *ngIf="titreCtrl.dirty && titreCtrl.hasError('required')" id="titre-warning">Un titre est requis</div>
+                <div *ngIf="titreCtrl.diy && titreCtrl.hasError('required')" id="titre-warning">Un titre est requis</div>
             </div>
             <div>
                 <app-tinymce [(ngModel)]="newsActu.description" name="description"></app-tinymce>

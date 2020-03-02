@@ -22,6 +22,7 @@ import { AnewsService } from './services/anews.service';
 import { AuthService } from './services/auth.service';
 import { AuthIntercepteur } from './services/auth.intercepteur';
 import { SecuriteIntercepteur } from './services/securite.intercepteur';
+import { AProposComponent } from './a-propos/a-propos.component';
 
 @NgModule({
   declarations: [
@@ -33,15 +34,16 @@ import { SecuriteIntercepteur } from './services/securite.intercepteur';
     MenuComponent,
     AnewsAuteurComponent,
     AnewsRelativeComponent,
-    AnewsreserveesComponent
+    AnewsreserveesComponent,
+    AProposComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     FormsModule,
     NoopAnimationsModule,
-    AppRoutingModule,
-    BrowserAnimationsModule
+    AppRoutingModule
   ],
   providers: [AnewsService, AuthService, { provide: HTTP_INTERCEPTORS, useClass:AuthIntercepteur, multi: true }, { provide: HTTP_INTERCEPTORS, useClass:SecuriteIntercepteur, multi: true }],
   bootstrap: [AppComponent]
